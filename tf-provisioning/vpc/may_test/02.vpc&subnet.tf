@@ -34,4 +34,4 @@ resource "ncloud_subnet" "priv_subnet" {
   // below fields is optional
   name           = "tf-lb-subnet"
   usage_type     = "LOADB"    // GEN(General) | LOADB(For load balancer)
-}*/
+}*/ 
