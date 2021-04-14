@@ -1,0 +1,98 @@
+    1  ls
+    2  cd tf-provisioning
+    3  ls
+    4  cd vpc/
+    5  ls
+    6  cd may_test/
+    7  ls
+    8  cd
+    9  ll
+   10  cd ncp-iac/
+   11  ll
+   12  ls -la
+   13  git config --global user.name "CGKang"
+   14  git config --global user.email "cheolgon.kang@navercorp.com"
+   15  git status
+   16  git remote add origin https://devtools.ncloud.com/2651978/ncp-iac.git
+   17  git remote status
+   18  git remote -v
+   19  git status
+   20  git push origin master
+   21  shutdown -h now
+   22  ls
+   23  cd tf-provisioning
+   24  ls
+   25  cd vpc/
+   26  ls
+   27  cd may_test/
+   28  ls
+   29  terraform init
+   30  terraform 0.13upgrade .
+   31  terraform init
+   32  terraform plan
+   33  export TF_VAR_access_key="yR689VrgvDa3JujbBlZx"
+   34  export TF_VAR_secret_key="Q3hNNvd9PFaqHbGf3gJpuRpvv7GtBFS6uxoCB7hO"
+   35  export TF_VAR_site="fin"
+   36  export TF_VAR_zone="FKR-1"
+   37  export TF_VAR_vpc_cidr="100.100.0.0/16"
+   38  export TF_VAR_pub_subnet_cidr="100.100.10.0/24"
+   39  export TF_VAR_priv_subnet_cidr="100.100.20.0/24"
+   40  terraform plan
+   41  terraform plan
+   42  terraform plan
+   43  cp 02.vpc\&subnet.tf 04.subnet.tf
+   44  terraform plan
+   45  terraform init
+   46  terraform plan
+   47  export TF_VAR_account_name="kcg"
+   48  terraform plan
+   49  ping 169.254.20.11
+   50  export TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
+   51  export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
+   52  export TF_VAR_site="fin"
+   53  terraform init
+   54  terraform plan
+   55  terraform init
+   56  terraform plan
+   57  terraform -v
+   58  tcping
+   59  yum install -y tcping
+   60  ls
+   61  cd
+   62  ls
+   63  wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/
+   64  ls
+   65  rm -rf index.html 
+   66  yum install -y epel-release
+   67  yum install -y tcping
+   68  ㅣㄴ
+   69  ls
+   70  cd tf-provisioning
+   71  ls
+   72  cd vpc/
+   73  ls
+   74  cd may_test/
+   75  terraform init
+   76  terraform plan
+   77  xport TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
+   78  export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
+   79  export TF_VAR_site="fin"
+   80  export TF_VAR_zone="FKR-1"
+   81  export TF_VAR_vpc_cidr="100.100.0.0/16"
+   82  export TF_VAR_pub_subnet_cidr="100.100.10.0/24"
+   83  export TF_VAR_priv_subnet_cidr="100.100.20.0/24"
+   84  export TF_VAR_account_name="kcg"
+   85  terraform plan
+   86  export TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
+   87  terraform plan
+   88  yum install -y tcping
+   89  tcping -t 5 169.254.20.11 443
+   90  tcping -t 5 169.254.20.11 80
+   91  ip a
+   92  ip link set eth0 mtu 1500
+   93  ip a
+   94  terraform plan
+   95  nslookup fin-ncloud.apigw.fin-ntruss.com
+   96  history
+   97  cd
+   98  history > history_backup
