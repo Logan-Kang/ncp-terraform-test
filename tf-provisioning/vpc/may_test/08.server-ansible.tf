@@ -2,6 +2,9 @@ resource "ncloud_network_interface" "ansible-nic" {
   name                  = "tf-${var.account_name}-ansible-nic"
   subnet_no             = ncloud_subnet.vpc_pub_subnet.id
   access_control_groups = [ncloud_access_control_group.acg.id]
+  depends_on = [
+    ncloud_login_key.loginkey
+  ]
 }
 
  ##public server
@@ -14,9 +17,11 @@ resource "ncloud_server" "ansible-server" {
     order = 0
   }
   
-  
   login_key_name = ncloud_login_key.loginkey.key_name
   init_script_no = ncloud_init_script.init-passwd-centos.id
+  depends_on = [
+    ncloud_network_interface.ansible-nic
+  ]
 }
 
 resource "ncloud_public_ip" "ansible-pub-ip" {
