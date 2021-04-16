@@ -9,7 +9,7 @@ resource "ncloud_subnet" "vpc_pub_subnet" {
   usage_type     = "GEN"    // GEN(General) | LOADB(For load balancer)
 }
 
-resource "ncloud_subnet" "priv_subnet" {
+resource "ncloud_subnet" "vpc_priv_subnet" {
   vpc_no         = ncloud_vpc.vpc.id
   subnet         = var.priv_subnet_cidr
   zone           = var.zone

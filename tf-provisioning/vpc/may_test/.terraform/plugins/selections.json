@@ -1,10 +1,14 @@
 {
+  "registry.terraform.io/hashicorp/null": {
+    "hash": "h1:xhbHC6in3nQryvTQBWKxebi3inG5OCgHgc4fRxL0ymc=",
+    "version": "3.1.0"
+  },
   "registry.terraform.io/hashicorp/random": {
-    "hash": "h1:BZMEPucF+pbu9gsPk0G0BHx7YP04+tKdq2MrRDF1EDM=",
+    "hash": "h1:rKYu5ZUbXwrLG1w81k7H3nce/Ys6yAxXhWcbtk36HjY=",
     "version": "3.1.0"
   },
   "registry.terraform.io/navercloudplatform/ncloud": {
-    "hash": "h1:7dL15tU/EbfoRCBIJeLmAA25f29kPbEw7REqAeWJR1I=",
+    "hash": "h1:M1j7OmTRsA5y+CVM/aC3BQhNi8qpH6ONP5TCoqL8xco=",
     "version": "2.1.0"
   }
 }
