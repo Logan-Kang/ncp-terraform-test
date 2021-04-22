@@ -25,6 +25,8 @@ variable "pub_subnet_cidr" {}
 
 variable "priv_subnet_cidr" {}
 
+variable "lb_subnet_cidr" {}
+
 variable "inbound_acg" {
   type = list
 }

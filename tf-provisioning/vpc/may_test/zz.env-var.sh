@@ -7,6 +7,7 @@ export TF_VAR_zone="FKR-1"
 export TF_VAR_vpc_cidr="10.200.0.0/16"
 export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
 export TF_VAR_priv_subnet_cidr="10.200.20.0/24"
+export TF_VAR_lb_subnet_cidr="10.200.30.0/24"
 
 export TF_VAR_account_name="kcg"
 
