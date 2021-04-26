@@ -16,6 +16,7 @@ export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UD
 
 export TF_VAR_linux_password='csi!@#123'
 
+export TF_VAR_server_spec='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"

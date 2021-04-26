@@ -14,6 +14,7 @@ resource "ncloud_server" "ansible-server" {
   subnet_no                 = ncloud_subnet.vpc_pub_subnet.id
   name                      = "tf-${var.account_name}-ansible-server"
   server_image_product_code = var.server_image
+  server_product_code       = var.server_spec
   network_interface {
     network_interface_no = ncloud_network_interface.ansible-nic.id
     order = 0

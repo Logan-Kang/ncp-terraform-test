@@ -36,6 +36,8 @@ variable "outbound_acg" {
 
 variable "linux_password" {}
 
+variable "server_spec" {}
+
 variable "server_image" {}
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
