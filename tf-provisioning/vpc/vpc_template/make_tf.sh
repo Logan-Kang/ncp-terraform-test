@@ -13,6 +13,9 @@ terraform apply -auto-approve
 cd ../05.init-script
 terraform init
 terraform apply -auto-approve
-cd ../06.login-key
+cd ../07.natgw
+terraform init
+terraform apply -auto-approve
+cd ../08.server-ansible
 terraform init
 terraform apply -auto-approve

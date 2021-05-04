@@ -1,7 +1,10 @@
-cd ./07.natgw
+cd ./09.server-tester
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../06.login-key
+cd ../08.server-ansible
+terraform destroy -auto-approve
+rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+cd ../07.natgw
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../05.init-script
