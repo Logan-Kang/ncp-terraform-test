@@ -13,7 +13,6 @@ echo -n -e $SIG
 SIGNATURE=$(echo -n -e "$SIG"|iconv -t utf8 |openssl dgst -sha256 -hmac $SECRETKEY -binary|openssl enc -base64)
 }
 
-#아래부분 수정
 accessKey="A2A482B25508A780DA48"
 secretKey="046B137ABC1BF65F269EF1E0997B1A55282C3A79"
 apiUrl="https://ncloud.apigw.ntruss.com"
