@@ -19,3 +19,12 @@ terraform apply -auto-approve
 cd ../08.server-ansible
 terraform init
 terraform apply -auto-approve
+cd ../09.server-tester
+terraform init
+terraform apply -auto-approve
+cd ../10.lb-tg/101.alb-tg
+terraform init
+terraform apply -auto-approve
+cd ../../11.lb/111.alb
+terraform init
+terraform apply -auto-approve
