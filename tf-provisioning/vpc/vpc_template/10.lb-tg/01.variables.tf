@@ -32,3 +32,23 @@ variable "linux_password" {}
 variable "server_spec_tester" {}
 
 variable "server_image_tester" {}
+
+variable "lb_name" {}
+
+variable "tg_protocol" {}
+
+variable "tg_port" {}
+
+variable "hc_protocol" {}
+
+variable "hc_port" {}
+
+variable "hc_url" {}
+
+variable "use_sticky_session" {
+  type = bool
+}
+
+variable "use_proxy_protocol" {
+  type = bool
+}

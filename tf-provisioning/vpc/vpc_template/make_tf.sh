@@ -22,9 +22,9 @@ terraform apply -auto-approve
 cd ../09.server-tester
 terraform init
 terraform apply -auto-approve
-cd ../10.lb-tg/101.alb-tg
+cd ../10.lb-tg
 terraform init
 terraform apply -auto-approve
-cd ../../11.lb/111.alb
+cd ../11.lb
 terraform init
 terraform apply -auto-approve

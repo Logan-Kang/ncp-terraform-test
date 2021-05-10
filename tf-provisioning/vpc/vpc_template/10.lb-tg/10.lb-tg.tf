@@ -10,29 +10,31 @@ data "ncloud_server" "tester-server" {
 }
 
 ## make target group for application loadbalancer
-resource "ncloud_lb_target_group" "alb-tg" {
+resource "ncloud_lb_target_group" "lb-tg" {
   vpc_no   = data.ncloud_vpc.vpc.id
-  name = "${data.ncloud_vpc.vpc.name}-alb-tg"
-  protocol = "HTTP"
+  name = "${data.ncloud_vpc.vpc.name}-${var.lb_name}-tg"
+  protocol = var.tg_protocol
   target_type = "VSVR"
-  port        = 80
+  port        = var.tg_port
   description = "for test"
   health_check {
-    protocol = "HTTP"
+    protocol = var.hc_protocol
     http_method = "GET"
-    port           = 80
-    url_path       = "/index.html"
+    port           = var.hc_port
+    url_path       = var.hc_url
     cycle          = 30
     up_threshold   = 2
     down_threshold = 2
   }
   algorithm_type = "RR"
+  use_sticky_session = var.use_sticky_session
+  use_proxy_protocol = var.use_proxy_protocol
 
 }
 
 ## attach server in target group(plural)
-resource "ncloud_lb_target_group_attachment" "alb-tg-instance" {
-  target_group_no = ncloud_lb_target_group.alb-tg.target_group_no
+resource "ncloud_lb_target_group_attachment" "lb-tg-instance" {
+  target_group_no = ncloud_lb_target_group.lb-tg.target_group_no
   target_no_list = [data.ncloud_server.tester-server.instance_no]
 
 }

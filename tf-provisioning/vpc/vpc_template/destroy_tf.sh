@@ -1,10 +1,10 @@
-cd ./11.lb/111.alb
+cd ./11.lb
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../../10.lb-tg/101.alb-tg
+cd ../10.lb-tg
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../../09.server-tester
+cd ./09.server-tester
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../08.server-ansible
