@@ -2,9 +2,9 @@ data "ncloud_vpc" "vpc" {
   name = "tf-${var.account_name}-vpc${var.vpc_num}"
 }
 
-data "ncloud_subnet" "vpc_pub_subnet" {
+data "ncloud_subnet" "vpc_priv_subnet" {
   vpc_no = data.ncloud_vpc.vpc.id
-  subnet = var.pub_subnet_cidr
+  subnet = var.priv_subnet_cidr
 }
 
 data "ncloud_access_control_group" "acg" {
@@ -22,13 +22,13 @@ resource "ncloud_login_key" "loginkey" {
 ## make server nic(eth0)
 resource "ncloud_network_interface" "tester-nic" {
   name                  = "tf-${var.account_name}-tester-nic"
-  subnet_no             = data.ncloud_subnet.vpc_pub_subnet.id
+  subnet_no             = data.ncloud_subnet.vpc_priv_subnet.id
   access_control_groups = [data.ncloud_access_control_group.acg.id]
 }
 
  ##public server
 resource "ncloud_server" "tester-server" {
-  subnet_no                 = data.ncloud_subnet.vpc_pub_subnet.id
+  subnet_no                 = data.ncloud_subnet.vpc_priv_subnet.id
   name                      = "tf-${var.account_name}-tester-server"
   server_image_product_code = var.server_image_tester
   server_product_code       = var.server_spec_tester
@@ -45,9 +45,11 @@ resource "ncloud_server" "tester-server" {
   ]
 }
 
+/*
 resource "ncloud_public_ip" "tester-pub-ip" {
   server_instance_no = ncloud_server.tester-server.id
 }
+*/
 ## Use when you have not changed your password.
 /* 
 data "ncloud_root_password" "ansible-root-password" {
@@ -56,31 +58,34 @@ data "ncloud_root_password" "ansible-root-password" {
 }
 */
 
+/*
 ## Initial configuration after server creation
 resource "null_resource" "tester-setup" {
   connection {
     type     = "ssh"
-    host     = ncloud_public_ip.tester-pub-ip.public_ip
+    host     = ncloud_public_ip.ansible-pub-ip.public_ip
     user     = "root"
     port     = "22"
     #password = data.ncloud_root_password.ansible-root-password.root_password
     password = var.linux_password
   }
-  /*
+  
   provisioner "file" {
-    source = "./usr.sbin.mysqld"
-    destination = "~/usr.sbin.mysqld"
+    source = "../99.file/test"
+    destination = "~/test"
   }
-  */
+  
   provisioner "remote-exec" { // 명령어 실행
     inline = [
+      "scp test root@${ncloud_network_interface.tester-nic.private_ip}:/root",
+      "ssh root@${ncloud_network_interface.tester-nic.private_ip}",
       "yum install -y httpd",
       "service httpd enable",
       "service httpd start"
     ]
   }
   depends_on = [
-      ncloud_public_ip.tester-pub-ip,
       ncloud_server.tester-server,
   ]
 }
+*/

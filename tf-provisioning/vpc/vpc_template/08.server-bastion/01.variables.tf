@@ -29,6 +29,6 @@ variable "outbound_acg" {
 
 variable "linux_password" {}
 
-variable "server_spec" {}
+variable "server_spec_bastion" {}
 
-variable "server_image" {}
+variable "server_image_bastion" {}
