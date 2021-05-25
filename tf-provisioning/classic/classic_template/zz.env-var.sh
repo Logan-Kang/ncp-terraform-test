@@ -4,7 +4,7 @@ export TF_VAR_site="public"
 
 export TF_VAR_zone="KR-2"
 
-export TF_VAR_num=2
+export TF_VAR_num=1
 
 export TF_VAR_account_name="kcg"
 

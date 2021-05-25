@@ -7,7 +7,7 @@ rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../09.server-tester
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../08.server-ansible
+cd ../08.server-bastion
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../07.natgw

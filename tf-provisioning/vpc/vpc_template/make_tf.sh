@@ -16,7 +16,7 @@ terraform apply -auto-approve
 cd ../07.natgw
 terraform init
 terraform apply -auto-approve
-cd ../08.server-ansible
+cd ../08.server-bastion
 terraform init
 terraform apply -auto-approve
 cd ../09.server-tester
