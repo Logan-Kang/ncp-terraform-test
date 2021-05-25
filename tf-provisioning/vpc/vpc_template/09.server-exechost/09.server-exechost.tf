@@ -16,38 +16,38 @@ data "ncloud_init_script" "init-passwd-centos" {
 }
 
 resource "ncloud_login_key" "loginkey" {
-  key_name = "Terraform-${var.account_name}-tester-key"
+  key_name = "Terraform-${var.account_name}-exechost-key"
 }
 
 ## make server nic(eth0)
-resource "ncloud_network_interface" "tester-nic" {
-  name                  = "tf-${var.account_name}-tester-nic"
+resource "ncloud_network_interface" "exechost-nic" {
+  name                  = "tf-${var.account_name}-exechost-nic"
   subnet_no             = data.ncloud_subnet.vpc_priv_subnet.id
   access_control_groups = [data.ncloud_access_control_group.acg.id]
 }
 
  ##public server
-resource "ncloud_server" "tester-server" {
+resource "ncloud_server" "exechost-server" {
   subnet_no                 = data.ncloud_subnet.vpc_priv_subnet.id
-  name                      = "tf-${var.account_name}-tester-server"
-  server_image_product_code = var.server_image_tester
-  server_product_code       = var.server_spec_tester
+  name                      = "tf-${var.account_name}-exechost-server"
+  server_image_product_code = var.server_image_exechost
+  server_product_code       = var.server_spec_exechost
   network_interface {
-    network_interface_no = ncloud_network_interface.tester-nic.id
+    network_interface_no = ncloud_network_interface.exechost-nic.id
     order = 0
   }
   
   login_key_name = ncloud_login_key.loginkey.key_name
   init_script_no = data.ncloud_init_script.init-passwd-centos.id
   depends_on = [
-    ncloud_network_interface.tester-nic,
+    ncloud_network_interface.exechost-nic,
     ncloud_login_key.loginkey
   ]
 }
 
 /*
-resource "ncloud_public_ip" "tester-pub-ip" {
-  server_instance_no = ncloud_server.tester-server.id
+resource "ncloud_public_ip" "exechost-pub-ip" {
+  server_instance_no = ncloud_server.exechost-server.id
 }
 */
 ## Use when you have not changed your password.
@@ -60,7 +60,7 @@ data "ncloud_root_password" "ansible-root-password" {
 
 /*
 ## Initial configuration after server creation
-resource "null_resource" "tester-setup" {
+resource "null_resource" "exechost-setup" {
   connection {
     type     = "ssh"
     host     = ncloud_public_ip.ansible-pub-ip.public_ip
@@ -77,15 +77,15 @@ resource "null_resource" "tester-setup" {
   
   provisioner "remote-exec" { // 명령어 실행
     inline = [
-      "scp test root@${ncloud_network_interface.tester-nic.private_ip}:/root",
-      "ssh root@${ncloud_network_interface.tester-nic.private_ip}",
+      "scp test root@${ncloud_network_interface.exechost-nic.private_ip}:/root",
+      "ssh root@${ncloud_network_interface.exechost-nic.private_ip}",
       "yum install -y httpd",
       "service httpd enable",
       "service httpd start"
     ]
   }
   depends_on = [
-      ncloud_server.tester-server,
+      ncloud_server.exechost-server,
   ]
 }
 */

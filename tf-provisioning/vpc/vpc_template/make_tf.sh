@@ -19,7 +19,7 @@ terraform apply -auto-approve
 cd ../08.server-bastion
 terraform init
 terraform apply -auto-approve
-cd ../09.server-tester
+cd ../09.server-exechost
 terraform init
 terraform apply -auto-approve
 cd ../10.lb-tg

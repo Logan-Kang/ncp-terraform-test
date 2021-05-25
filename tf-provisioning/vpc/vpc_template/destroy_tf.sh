@@ -4,7 +4,7 @@ rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../10.lb-tg
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../09.server-tester
+cd ../09.server-exechost
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../08.server-bastion
