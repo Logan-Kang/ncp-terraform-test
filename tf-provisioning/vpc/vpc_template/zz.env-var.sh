@@ -19,8 +19,8 @@ export TF_VAR_linux_password='csi!@#123'
 
 export TF_VAR_server_spec_bastion='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_bastion='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
-export TF_VAR_server_spec_tester='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
-export TF_VAR_server_image_tester='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
   ##"SW.VSVR.OS.LNX64.CNTOS.0708.B050" = "CentOS 7.8 (64-bit)"
