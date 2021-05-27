@@ -29,9 +29,9 @@ variable "outbound_acg" {
 
 variable "linux_password" {}
 
-variable "server_spec_tester" {}
+variable "server_spec_exechost" {}
 
-variable "server_image_tester" {}
+variable "server_image_exechost" {}
 
 variable "lb_name" {}
 

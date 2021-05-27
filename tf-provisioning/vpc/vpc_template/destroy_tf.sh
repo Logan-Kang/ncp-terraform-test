@@ -1,6 +1,8 @@
 cd ./11.lb
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+# git update를 위해 tfstate까지 삭제한 파일입니다. 사용에 주의를 요합니다.
+# make_tf.sh 실행하다가 문제가 발생하여 원복이 필요할 경우 destroy_tf2.sh을 이용하세요.
 cd ../10.lb-tg
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
