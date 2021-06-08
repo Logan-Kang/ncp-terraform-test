@@ -27,6 +27,14 @@ export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
   ##"SW.VSVR.OS.LNX64.UBNTU.SVR1604.B050" = "ubuntu-16.04-64-server"
   ##"SW.VSVR.OS.WND64.WND.SVR2016EN.B100" = "Windows Server 2016 (64-bit) English Edition"
 
+export TF_VAR_cdbmysql_name='kcg-cdbmysql'
+export TF_VAR_cdbmysql_prefix='kcg-cdbmysql'
+export TF_VAR_cdbmysql_username='student'
+export TF_VAR_cdbmysql_userpwd='csi!@#123'
+export TF_VAR_cdbmysql_hostIP='%1'
+export TF_VAR_cdbmysql_dbname='test'
+export TF_VAR_path_module=$(pwd)
+
 ## Application LB
 export TF_VAR_tg_protocol="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
 export TF_VAR_tg_port='80' 
