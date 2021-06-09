@@ -1,5 +1,5 @@
-export TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
-export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
+export TF_VAR_access_key="gzQg15lH2JaYa57ed8zm"
+export TF_VAR_secret_key="ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L"
 export TF_VAR_site="fin"
 
 export TF_VAR_zone="FKR-1"
@@ -27,11 +27,15 @@ export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
   ##"SW.VSVR.OS.LNX64.UBNTU.SVR1604.B050" = "ubuntu-16.04-64-server"
   ##"SW.VSVR.OS.WND64.WND.SVR2016EN.B100" = "Windows Server 2016 (64-bit) English Edition"
 
+export TF_VAR_api_url="https://fin-ncloud.apigw.fin-ntruss.com"# finance
+#export TF_VAR_api_url='https://ncloud.apigw.gov-ntruss.com' # gov
+#export TF_VAR_api_url='https://ncloud.apigw.ntruss.com' # public
+
 export TF_VAR_cdbmysql_name='kcg-cdbmysql'
 export TF_VAR_cdbmysql_prefix='kcg-cdbmysql'
 export TF_VAR_cdbmysql_username='student'
 export TF_VAR_cdbmysql_userpwd='csi!@#123'
-export TF_VAR_cdbmysql_hostIP='%1'
+export TF_VAR_cdbmysql_hostIP='%25'
 export TF_VAR_cdbmysql_dbname='test'
 export TF_VAR_path_module=$(pwd)
 

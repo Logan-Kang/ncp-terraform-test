@@ -28,3 +28,7 @@ terraform apply -auto-approve
 cd ../11.lb
 terraform init
 terraform apply -auto-approve
+cd ../12.cdb-mysql
+export TF_VAR_path_module=$(pwd)
+terraform init
+terraform apply -auto-approve

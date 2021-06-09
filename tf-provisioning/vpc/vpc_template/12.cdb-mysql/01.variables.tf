@@ -47,6 +47,6 @@ variable "cdbmysql_dbname" {}
 
 variable "path_module" {}
 
-
+variable "api_url" {}
 
 
