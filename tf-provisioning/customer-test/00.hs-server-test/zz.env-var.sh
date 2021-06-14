@@ -1,11 +1,10 @@
-export TF_VAR_access_key="gzQg15lH2JaYa57ed8zm"
-export TF_VAR_secret_key="ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L"
-export TF_VAR_site="fin"
+export TF_VAR_access_key="kvVvVRm7ciGJNi9Rq51x"
+export TF_VAR_secret_key="k359v7ya0ED2Wa9ii4dZYvlC0uXvE3mMC2QRKkg5"
+export TF_VAR_site="public"
 
-export TF_VAR_region="FKR"
-export TF_VAR_zone="FKR-1"
+export TF_VAR_zone="KR-2"
 
-export TF_VAR_vpc_num="01"
+export TF_VAR_num="30"
 export TF_VAR_vpc_cidr="10.200.0.0/16"
 export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
 export TF_VAR_priv_subnet_cidr="10.200.20.0/24"
@@ -20,7 +19,7 @@ export TF_VAR_linux_password='csi!@#123'
 
 export TF_VAR_server_spec_bastion='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_bastion='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
-export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M008.NET.HDD.B050.G002'
 export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
