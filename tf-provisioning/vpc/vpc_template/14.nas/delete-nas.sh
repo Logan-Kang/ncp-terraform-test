@@ -1,10 +1,10 @@
 #!/bin/bash
 Usage(){
-    echo "./$0 <nas-name> <vol-size> <vol-type> <zone>"
+    echo "./$0 <nas-instanceNo"
     exit 1
 }
 
-if [ $# -ne 4 ]; then
+if [ $# -ne 1 ]; then
     Usage
 fi
 
@@ -24,12 +24,10 @@ function makeSignature() {
 
 apiUrl="$TF_VAR_api_url"
  
-nas_name=$1
-nas_size=$2
-nas_type=$3
-nas_zone=$4
+nas_instance_no=$1
+
 METHOD=GET
-URI="/vnas/v2/createNasVolumeInstance?zoneCode=$nas_zone&volumeName=$nas_name&volumeAllotmentProtocolTypeCode=$nas_type&volumeSize=500&responseFormatType=json"
+URI="/vnas/v2/deleteNasVolumeInstances?nasVolumeInstanceNoList.1=$nas_instance_no&responseFormatType=json"
 makeSignature $METHOD $URI
 
 result=`curl -i -X $METHOD \
@@ -40,9 +38,14 @@ result=`curl -i -X $METHOD \
 -H "x-ncp-apigw-signature-v2:$SIGNATURE" \
 "${apiUrl}${URI}" 2>>/dev/null`
 
-nasVolStr=`echo "$result" | grep nasVolumeInstanceNo`
-if [ -z "$nasVolStr" ]; then
+ret=`echo "$result" | grep returnMessage`
+if [ -z "$ret" ]; then
     echo "Failed"
 else
-    echo $nasVolStr | awk -F\" '{print $4}'
+    resultStr=`echo $ret | awk -F\" '{print $4}'`
+    if [ "$resultStr" = "success" ]; then
+        echo "success"
+    else
+        echo "Failed"
+    fi
 fi
