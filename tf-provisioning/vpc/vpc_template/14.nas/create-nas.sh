@@ -29,7 +29,7 @@ nas_size=$2
 nas_type=$3
 nas_zone=$4
 METHOD=GET
-URI="/vnas/v2/deleteNasVolumeInstances?zoneCode=$nas_zone&volumeName=$nas_name&volumeAllotmentProtocolTypeCode=$nas_type&volumeSize=500"
+URI="/vnas/v2/createNasVolumeInstance?zoneCode=$nas_zone&volumeName=$nas_name&volumeAllotmentProtocolTypeCode=$nas_type&volumeSize=500"
 makeSignature $METHOD $URI
 
 result=`curl -i -X $METHOD \
@@ -39,5 +39,12 @@ result=`curl -i -X $METHOD \
 -H "x-ncp-iam-access-key:$TF_VAR_access_key" \
 -H "x-ncp-apigw-signature-v2:$SIGNATURE" \
 "${apiUrl}${URI}" 2>>/dev/null`
+
+nasVolStr=`echo $result | grep nasVolumeInstanceNo`
+if [ -z "$nasVolStr" ]; then
+    echo "Failed"
+else
+    echo $nasVolStr | awk -F\" '{print $4}'
+fi
 
 exit $?
