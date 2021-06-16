@@ -11,8 +11,8 @@ data "ncloud_access_control_group" "acg" {
   name = "tf-${var.account_name}-vpc${var.vpc_num}-acg"
 }
 
-data "ncloud_init_script" "init-passwd-centos" {
-  name    = "tf-chpasswd-centos"
+data "ncloud_init_script" "init-exechost-centos" {
+  name    = "tf-init-exechost-centos"
 }
 
 resource "ncloud_login_key" "loginkey" {
@@ -38,7 +38,7 @@ resource "ncloud_server" "exechost-server" {
   }
   
   login_key_name = ncloud_login_key.loginkey.key_name
-  init_script_no = data.ncloud_init_script.init-passwd-centos.id
+  init_script_no = data.ncloud_init_script.init-exechost-centos.id
   depends_on = [
     ncloud_network_interface.exechost-nic,
     ncloud_login_key.loginkey
