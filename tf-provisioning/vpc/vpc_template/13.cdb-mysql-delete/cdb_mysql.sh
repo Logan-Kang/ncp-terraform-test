@@ -2,7 +2,7 @@
 function makeSignature() {
 nl=$'\\n'
  
-TIMESTAMP=$(echo $(($(gdate +%s%N)/1000000)))
+TIMESTAMP=$(echo $(($(date +%s%N)/1000000)))
 ACCESSKEY="$TF_VAR_access_key"
 SECRETKEY="$TF_VAR_secret_key"
  
