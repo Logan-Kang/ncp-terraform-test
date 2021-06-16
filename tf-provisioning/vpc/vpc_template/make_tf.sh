@@ -32,3 +32,12 @@ cd ../12.cdb-mysql
 export TF_VAR_path_module=$(pwd)
 terraform init
 terraform apply -auto-approve
+
+cd ../14*
+nas_number=`./create-nas.sh $nas_name $nas_size $nas_type`
+if [ "$nas_number" = "Failed" ]; then
+    echo "Make Nas Failed"
+else
+    server1_No=`cat ../09.server-exechost/terraform.tfstate  | grep \"instance_no\" | awk -F\" '{print $4}'`
+    ./access-control.sh set $nas_number $server1_No
+fi
