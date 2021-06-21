@@ -12,6 +12,8 @@ cd ../11.lb
 terraform destroy -auto-approve
 cd ../10.lb-tg
 terraform destroy -auto-approve
+cd ../09.server-exechost2
+terraform destroy -auto-approve
 cd ../09.server-exechost
 terraform destroy -auto-approve
 cd ../08.server-bastion

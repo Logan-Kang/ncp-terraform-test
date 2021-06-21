@@ -4,12 +4,15 @@ export TF_VAR_site="fin"
 
 export TF_VAR_region="FKR"
 export TF_VAR_zone="FKR-1"
+export TF_VAR_zone2="FKR-2"
+
 
 export TF_VAR_vpc_num="01"
 export TF_VAR_vpc_cidr="10.200.0.0/16"
 export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
 export TF_VAR_priv_subnet_cidr="10.200.20.0/24"
-export TF_VAR_lb_subnet_cidr="10.200.30.0/24"
+export TF_VAR_priv_subnet2_cidr="10.200.30.0/24"
+export TF_VAR_lb_subnet_cidr="10.200.40.0/24"
 
 export TF_VAR_account_name="kcg"
 
@@ -22,6 +25,8 @@ export TF_VAR_server_spec_bastion='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_bastion='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_server_spec_exechost2='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
   ##"SW.VSVR.OS.LNX64.CNTOS.0708.B050" = "CentOS 7.8 (64-bit)"

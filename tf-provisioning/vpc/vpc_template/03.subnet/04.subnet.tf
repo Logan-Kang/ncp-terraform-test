@@ -31,6 +31,20 @@ resource "ncloud_subnet" "vpc_priv_subnet" {
   ]
 }
 
+resource "ncloud_subnet" "vpc_priv_subnet2" {
+  vpc_no         = data.ncloud_vpc.vpc.id
+  subnet         = var.priv_subnet2_cidr
+  zone           = var.zone2
+  network_acl_no = data.ncloud_network_acls.nacls.network_acls[0].id
+  subnet_type    = "PRIVATE" // PUBLIC | PRIVATE
+  // below fields is optional
+  name           = "${data.ncloud_vpc.vpc.name}-priv-subnet2"
+  usage_type     = "GEN"    // GEN(General) | LOADB(For load balancer)
+  depends_on = [
+    ncloud_subnet.vpc_pub_subnet
+  ]
+}
+
 resource "ncloud_subnet" "vpc_lb_subnet" {
   vpc_no         = data.ncloud_vpc.vpc.id
   subnet         = var.lb_subnet_cidr

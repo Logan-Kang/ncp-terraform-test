@@ -14,9 +14,13 @@ variable "vpc_num" {}
 
 variable "zone" {}
 
+variable "zone2" {}
+
 variable "pub_subnet_cidr" {}
 
 variable "priv_subnet_cidr" {}
+
+variable "priv_subnet2_cidr" {}
 
 variable "lb_subnet_cidr" {}
 

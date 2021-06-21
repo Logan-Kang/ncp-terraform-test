@@ -22,6 +22,9 @@ terraform apply -auto-approve
 cd ../09.server-exechost
 terraform init
 terraform apply -auto-approve
+cd ../09.server-exechost2
+terraform init
+terraform apply -auto-approve
 cd ../10.lb-tg
 terraform init
 terraform apply -auto-approve
