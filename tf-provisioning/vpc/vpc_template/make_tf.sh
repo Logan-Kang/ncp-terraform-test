@@ -37,7 +37,7 @@ terraform init
 terraform apply -auto-approve
 
 cd ../14*
-nas_number=`./create-nas.sh $nas_name $nas_size $nas_type`
+nas_number=`./create-nas.sh $nas_name $nas_size $nas_type $nas_zone`
 if [ "$nas_number" = "Failed" ]; then
     echo "Make Nas Failed"
 else
