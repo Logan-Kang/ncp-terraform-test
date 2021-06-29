@@ -8,6 +8,8 @@ variable "site" {
     # default = "fin" #: Finance
 }
 
+variable "region" {}
+
 variable "zone" {}
 
 variable "num" {}

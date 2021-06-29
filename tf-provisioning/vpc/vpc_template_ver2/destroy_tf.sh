@@ -8,7 +8,7 @@ terraform destroy -auto-approve
 terraform apply -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 sleep 1200
-cd ./12.cdb-mysql-create
+cd ../12.cdb-mysql-create
 export TF_VAR_path_module=$(pwd)
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup output.apistate
@@ -16,9 +16,6 @@ cd ../11.lb
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../10.lb-tg
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../09.server-exechost2
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 cd ../09.server-exechost

@@ -2,7 +2,8 @@ export TF_VAR_access_key="kvVvVRm7ciGJNi9Rq51x"
 export TF_VAR_secret_key="k359v7ya0ED2Wa9ii4dZYvlC0uXvE3mMC2QRKkg5"
 export TF_VAR_site="public"
 
-export TF_VAR_zone="KR-2"
+export TF_VAR_region="SGN"
+export TF_VAR_zone="SGN-1"
 
 export TF_VAR_num=1
 
@@ -13,8 +14,8 @@ export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UD
 
 export TF_VAR_linux_password='csi!@#123'
 
-export TF_VAR_server_spec_bastion='SPSVRSSD00000003' # 2vCPU, 4GB Mem, SSD 50GB
-export TF_VAR_server_image_bastion='SPSW0LINUX000139' # centos-7.8-64
+export TF_VAR_server_spec_bastion='SPSVRSTAND000004' # 2vCPU, 4GB Mem, HDD 50GB
+export TF_VAR_server_image_bastion='SPSW0LINUX000046' # centos-7.3-64
 export TF_VAR_server_spec_tester='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_tester='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
