@@ -54,6 +54,7 @@ export TF_VAR_cdbmysql_port='3306'  # set mysql port(3306 or 10000~20000)
 export nas_name="kcgnas"
 export nas_size=500 # 500GB ~ 10,000GB이며, 100GB 단위로 추가
 export nas_type="NFS"
+export nas_zone="FKR-1"
 
 #---------- LB(choose 1 in 3) ----------#
 ## Application LB

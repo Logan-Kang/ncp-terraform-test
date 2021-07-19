@@ -4,7 +4,7 @@ export TF_VAR_site="public"
 
 export TF_VAR_zone="KR-2"
 
-export TF_VAR_num="30"
+export TF_VAR_num="13"
 export TF_VAR_vpc_cidr="10.200.0.0/16"
 export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
 export TF_VAR_priv_subnet_cidr="10.200.20.0/24"

@@ -2,10 +2,10 @@ export TF_VAR_access_key="kvVvVRm7ciGJNi9Rq51x"
 export TF_VAR_secret_key="k359v7ya0ED2Wa9ii4dZYvlC0uXvE3mMC2QRKkg5"
 export TF_VAR_site="public"
 
-export TF_VAR_region="SGN"
-export TF_VAR_zone="SGN-1"
+export TF_VAR_region="KR"
+export TF_VAR_zone="KR-2"
 
-export TF_VAR_num=1
+export TF_VAR_num=13
 
 export TF_VAR_account_name="kcg"
 

@@ -20,8 +20,6 @@ variable "support_vpc" {
 
 variable "zone" {}
 
-variable "zone2" {}
-
 variable "pub_subnet_cidr" {}
 
 variable "priv_subnet_cidr" {}
@@ -36,6 +34,10 @@ variable "inbound_acg" {
 variable "outbound_acg" {
   type = list
 }
+
+variable "num_of_svrs" {}
+
+variable "init_script_name" {}
 
 variable "linux_password" {}
 

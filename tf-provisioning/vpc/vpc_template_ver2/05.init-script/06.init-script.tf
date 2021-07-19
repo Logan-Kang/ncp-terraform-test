@@ -10,12 +10,12 @@ resource "ncloud_init_script" "init-passwd-ubt" {
 
 resource "ncloud_init_script" "init-bastion-centos" {
   name    = "tf-init-bastion-centos"
-  content = "#!/bin/bash\necho '${var.linux_password}' | passwd --stdin root\nifconfig eth0 mtu 1500"
+  content = "#!/bin/bash\necho '${var.linux_password}' | passwd --stdin root\nifconfig eth0 mtu 1500\nyum install -y sshpass"
 }
 
 resource "ncloud_init_script" "init-bastion-ubt" {
   name    = "tf-init-bastion-ubt"
-  content = "#!/bin/bash\necho 'root:${var.linux_password}' | chpasswd\nifconfig eth0 mtu 1500"
+  content = "#!/bin/bash\necho 'root:${var.linux_password}' | chpasswd\nifconfig eth0 mtu 1500\napt-get install -y sshpass"
 }
 
 resource "ncloud_init_script" "init-exechost-centos" {

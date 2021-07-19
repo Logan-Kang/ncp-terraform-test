@@ -20,13 +20,9 @@ variable "support_vpc" {
 
 variable "zone" {}
 
-variable "zone2" {}
-
 variable "pub_subnet_cidr" {}
 
 variable "priv_subnet_cidr" {}
-
-variable "priv_subnet2_cidr" {}
 
 variable "lb_subnet_cidr" {}
 
@@ -39,8 +35,8 @@ variable "outbound_acg" {
 
 variable "linux_password" {}
 
-variable "server_spec_exechost" {}
+variable "server_spec_bastion" {}
 
-variable "server_image_exechost" {}
+variable "server_image_bastion" {}
 
-variable "init_script_name" {}
+variable "exechost3_addstg_mountdir" {}

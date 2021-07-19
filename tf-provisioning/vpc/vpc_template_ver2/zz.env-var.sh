@@ -3,8 +3,8 @@ export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
 export TF_VAR_site="fin"
 
 export TF_VAR_region="FKR"
-export TF_VAR_zone="FKR-1"
-export TF_VAR_zone2="FKR-2"
+export TF_VAR_zone="FKR-2"
+export TF_VAR_zone2="FKR-1"
 export TF_VAR_support_vpc=true
 
 
@@ -31,6 +31,10 @@ export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_server_spec_exechost2='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_server_spec_exechost3='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost3='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_exechost3_addstg_size="100"
+export TF_VAR_exechost3_addstg_mountdir="/mnt/addstg"
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
   ##"SW.VSVR.OS.LNX64.CNTOS.0708.B050" = "CentOS 7.8 (64-bit)"
@@ -104,6 +108,10 @@ export TF_VAR_listener_port='80'
 export TF_VAR_use_sticky_session=false
 export TF_VAR_use_proxy_protocol=true
 
-
-echo $TF_VAR_access_key
-echo $TF_VAR_secret_key
+#---------- NAS ----------#
+export TF_VAR_nas_name_postfix="kcgnas"
+export TF_VAR_nas_size=500 # 500 ~ 10000GB
+export TF_VAR_nas_protocol="NFS" # NFS|CIFS
+export TF_VAR_cifs_user_name=""
+export TF_VAR_cifs_user_password=""
+export TF_VAR_nas_encrypted=false

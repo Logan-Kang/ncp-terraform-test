@@ -20,8 +20,6 @@ variable "support_vpc" {
 
 variable "zone" {}
 
-variable "zone2" {}
-
 variable "pub_subnet_cidr" {}
 
 variable "priv_subnet_cidr" {}
@@ -37,10 +35,26 @@ variable "outbound_acg" {
   type = list
 }
 
+variable "num_of_svrs" {}
+
+variable "init_script_name" {}
+
 variable "linux_password" {}
 
 variable "server_spec_exechost" {}
 
 variable "server_image_exechost" {}
 
-variable "init_script_name" {}
+variable "nas_name_postfix" {}
+
+variable "nas_size" {}
+
+variable "nas_protocol" {}
+
+variable "cifs_user_name" {}
+
+variable "cifs_user_password" {}
+
+variable "nas_encrypted" {
+  type = bool
+}

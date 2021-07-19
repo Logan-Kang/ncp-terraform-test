@@ -39,8 +39,12 @@ variable "outbound_acg" {
 
 variable "linux_password" {}
 
-variable "server_spec_exechost" {}
+variable "server_spec_exechost3" {}
 
-variable "server_image_exechost" {}
+variable "server_image_exechost3" {}
 
 variable "init_script_name" {}
+
+variable "exechost3_addstg_size" {}
+
+variable "exechost3_addstg_mountdir" {}

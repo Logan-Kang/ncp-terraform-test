@@ -19,8 +19,15 @@ data "ncloud_init_script" "init-passwd-ubt" {
   name    = "tf-chpasswd-ubt"
 }
 
+data "ncloud_server" "exechost3-server" {
+  filter {
+    name = "name"
+    values = ["tf-${var.account_name}-exechost3-server"]
+  }
+}
+
 resource "ncloud_login_key" "loginkey" {
-  key_name = "Terraform-${var.account_name}-key"
+  key_name = "Terraform-${var.account_name}-bastion-key"
 }
 
 ## make server nic(eth0)
@@ -43,6 +50,8 @@ resource "ncloud_server" "bastion-server" {
   
   login_key_name = ncloud_login_key.loginkey.key_name
   init_script_no = data.ncloud_init_script.init-bastion-centos.id
+
+
   depends_on = [
     ncloud_network_interface.bastion-nic,
     ncloud_login_key.loginkey
@@ -61,28 +70,3 @@ data "ncloud_root_password" "bastion-root-password" {
 */
 
 ## Initial configuration after server creation
-resource "null_resource" "bastion-setup" {
-  connection {
-    type     = "ssh"
-    host     = ncloud_public_ip.bastion-pub-ip.public_ip
-    user     = "root"
-    port     = "22"
-    #password = data.ncloud_root_password.bastion-root-password.root_password
-    password = var.linux_password
-  }
-  /*
-  provisioner "file" {
-    source = "./usr.sbin.mysqld"
-    destination = "~/usr.sbin.mysqld"
-  }
-  */
-  /*provisioner "remote-exec" { // 명령어 실행
-    inline = [
-      "yum update -y",
-    ]
-  }*/
-  depends_on = [
-      ncloud_public_ip.bastion-pub-ip,
-      ncloud_server.bastion-server,
-  ]
-}

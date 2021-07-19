@@ -5,7 +5,7 @@ data "ncloud_vpc" "vpc" {
 data "ncloud_server" "exechost-server" {
   filter {
     name = "name"
-    values = ["tf-${var.account_name}-exechost-server1"]
+    values = ["tf-${var.account_name}-exechost-server"]
   }
 }
 
