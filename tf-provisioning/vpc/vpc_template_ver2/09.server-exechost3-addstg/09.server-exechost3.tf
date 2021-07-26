@@ -81,34 +81,25 @@ resource "null_resource" "exechost-setup" {
     #password = data.ncloud_root_password.ansible-root-password.root_password
     password = var.linux_password
   }
-  
+
+  provisioner "file" {
+    source = "./add-storage.sh"
+    destination = "~/add-storage.sh"
+  }
+
   provisioner "remote-exec" { // 명령어 실행
     inline = [
       "yum install -y sshpass",
       "rm -rf ./password",
       "echo ${var.linux_password} >> ./password",
       "cat ./password",
-      "sshpass -f ./password ssh -o StrictHostKeyChecking=no root@${ncloud_network_interface.exechost3-nic.private_ip}",
-      "mkdir ${var.exechost3_addstg_mountdir}",
-      "DIR='/dev/xvdb'",
-      "DIR2='/dev/xvdb1'",
-      "INPUT='/tmp/input'",
-      "rm -f $INPUT",
-      "echo 'n' >> $INPUT",
-      "echo 'p' >> $INPUT",
-      "echo '1' >> $INPUT",
-      "echo '' >> $INPUT",
-      "echo '' >> $INPUT",
-      "echo 't' >> $INPUT",
-      "echo '83' >> $INPUT",
-      "echo 'w' >> $INPUT",
-      "fdisk $DIR < $INPUT",
-      "mkfs.ext4 $DIR2",
-      "mount $DIR2 ${var.exechost3_addstg_mountdir}",
-      "mkdir /mnt/backup",
-      "cp /etc/fstab /mnt/backup/fstab-backup",
-      "blkid |grep $DIR2 |cut -d ' ' -f2 >> BLKID",
-      "echo 'BLKID ${var.exechost3_addstg_mountdir} ext4 defaults 0 0' >> /etc/fstab",
+      "sshpass -f ./password ssh -o StrictHostKeyChecking=no root@${ncloud_network_interface.exechost3-nic.private_ip} << EOF",
+      "echo 'MOUNTDIR=${var.exechost3_addstg_mountdir}' >> .bash_profile",
+      "echo 'export MOUNTDIR' >> .bash_profile",
+      "source .bash_profile",
+      "EOF",
+      "sshpass -f ./password ssh -o StrictHostKeyChecking=no root@${ncloud_network_interface.exechost3-nic.private_ip} < add-storage.sh",
+      "echo '=== REMOTE-EXEC END==='",
     ]
   }
   depends_on = [

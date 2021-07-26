@@ -34,7 +34,7 @@ export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_server_spec_exechost3='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost3='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_exechost3_addstg_size="100"
-export TF_VAR_exechost3_addstg_mountdir="/mnt/addstg"
+export TF_VAR_exechost3_addstg_mountdir='/mnt/addstg'
 ##(server image list)
   ##"SW.VSVR.OS.LNX64.CNTOS.0703.B050" = "centos-7.3-64"
   ##"SW.VSVR.OS.LNX64.CNTOS.0708.B050" = "CentOS 7.8 (64-bit)"
