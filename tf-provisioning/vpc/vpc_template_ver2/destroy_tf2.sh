@@ -13,6 +13,12 @@ cd ../11.lb
 terraform destroy -auto-approve
 cd ../10.lb-tg
 terraform destroy -auto-approve
+cd ../09.server-exechost3-addstg/09-1.detach-storage
+terraform init
+terraform apply -auto-approve
+terraform destroy -auto-approve
+cd ..
+terraform destroy -auto-approve
 cd ../09.server-exechost2
 terraform destroy -auto-approve
 cd ../09.server-exechost
