@@ -12,7 +12,7 @@ data "ncloud_server" "exechost3-server" {
   }
 }
 data "ncloud_network_interface" "exechost3-nic" {
-  name                  = "tf-${var.account_name}-exechost3-nic"
+  name = "tf-${var.account_name}-exechost3-nic"
 }
 
 ## Initial configuration after server creation

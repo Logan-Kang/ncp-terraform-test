@@ -44,20 +44,29 @@ resource "null_resource" "exechost-nfs-setup" {
     password = var.linux_password
   }
 
+  provisioner "file" {
+    source = "./mount-nas.sh"
+    destination = "~/mount-nas.sh"
+  }
+
   provisioner "remote-exec" { // 명령어 실행
     inline = [
-      "ssh root@${data.ncloud_network_interface.exechost-nic.private_ip}",
+      "yum install -y sshpass",
+      "rm -rf ./password",
+      "echo ${var.linux_password} >> ./password",
+      "cat ./password",
+      "sshpass -f ./password ssh -o StrictHostKeyChecking=no root@${data.ncloud_network_interface.exechost-nic.private_ip} << EOF",
+      "echo 'MOUNTDIR=${var.nas_mountdir}' >> .bash_profile",
+      "echo 'export MOUNTDIR' >> .bash_profile",
+      "echo 'NAS_VOL=${ncloud_nas_volume.exechost-nas.mount_information}' >> .bash_profile",
+      "echo 'export NAS_VOL' >> .bash_profile",
+      "source .bash_profile",
       "yum install -y nfs-utils",
       "systemctl enable rpcbind",
-      "mkdir /mnt/nas",
-      "mount -t nfs ${ncloud_nas_volume.exechost-nas.custom_ip_list}:/${ncloud_nas_volume.exechost-nas.name} /mnt/nas",
-      "mkdir /mnt/backup",
-      "cp /etc/fstab /mnt/backup/fstab-backup",
-      "echo '${ncloud_nas_volume.exechost-nas.custom_ip_list}:/${ncloud_nas_volume.exechost-nas.name} /mnt/nas nfs defaults 0 0' >> /etc/fstab",
+      "systemctl start rpcbind",
+      "EOF",
+      "sshpass -f ./password ssh -o StrictHostKeyChecking=no root@${data.ncloud_network_interface.exechost-nic.private_ip} < mount-nas.sh",
+      "echo '=== REMOTE-EXEC END==='",
     ]
   }
-  depends_on = [
-      ncloud_nas_volume.exechost-nas,
-  ]
-
 }

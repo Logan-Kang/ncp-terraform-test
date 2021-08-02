@@ -115,3 +115,4 @@ export TF_VAR_nas_protocol="NFS" # NFS|CIFS
 export TF_VAR_cifs_user_name=""
 export TF_VAR_cifs_user_password=""
 export TF_VAR_nas_encrypted=false
+export TF_VAR_nas_mountdir='/mnt/nas'

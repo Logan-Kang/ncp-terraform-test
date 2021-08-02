@@ -58,3 +58,7 @@ variable "cifs_user_password" {}
 variable "nas_encrypted" {
   type = bool
 }
+
+variable "nas_mountdir" {
+  
+}
