@@ -18,17 +18,21 @@ variable "support_vpc" {
   type = bool
 }
 
-variable "zone" {}
+variable "num_of_priv_subnets" {}
 
-variable "zone2" {}
+variable "zone" {
+  type = list
+}
 
 variable "pub_subnet_cidr" {}
 
-variable "priv_subnet_cidr" {}
+variable "priv_subnet_cidr" {
+  type = list
+}
 
-variable "priv_subnet2_cidr" {}
-
-variable "lb_subnet_cidr" {}
+variable "lb_subnet_cidr" {
+  type = list
+}
 
 
 /*

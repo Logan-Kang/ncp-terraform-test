@@ -1,30 +1,55 @@
+### Default ###
+# Provider 환경변수 설정
 export TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
 export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
 export TF_VAR_site="fin"
-
 export TF_VAR_region="FKR"
-export TF_VAR_zone="FKR-2"
-export TF_VAR_zone2="FKR-1"
 export TF_VAR_support_vpc=true
 
-
-export TF_VAR_vpc_num="01"
-export TF_VAR_vpc_cidr="10.200.0.0/16"
-export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
-export TF_VAR_priv_subnet_cidr="10.200.20.0/24"
-export TF_VAR_priv_subnet2_cidr="10.200.30.0/24"
-export TF_VAR_lb_subnet_cidr="10.200.40.0/24"
-
+## 기본 변수 ##
 export TF_VAR_account_name="kcg"
 
+## VPC & Subnet (with default NACL) ##
+export TF_VAR_vpc_num="01"
+export TF_VAR_vpc_cidr="10.200.0.0/16"
+
+# zone은 첫번째 항목으로 public subnet 생성
+# zone 개수와, priv_subnet 개수 일치해야함(count 동일)
+export TF_VAR_pub_subnet_cidr="10.200.10.0/24"
+export TF_VAR_num_of_priv_subnets=2
+export TF_VAR_zone='["FKR-2","FKR-1"]'
+export TF_VAR_priv_subnet_cidr='["10.200.20.0/24","10.200.30.0/24"]'
+export TF_VAR_lb_subnet_cidr='["10.200.110.0/24","10.200.120.0/24"]'
+
+## ACG ##
 export TF_VAR_inbound_acg='[["TCP", "0.0.0.0/0", "80", "HTTP", ""],["TCP", "0.0.0.0/0", "3389", "RDP", ""]]'
 export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UDP", "0.0.0.0/0", "1-65535", "UDP all", ""],["ICMP", "0.0.0.0/0", null, "ICMP", ""]]'
 
+## init-script ##
 export TF_VAR_linux_password='csi!@#123'
 
-
+## Bastion Server(Public) ##
 export TF_VAR_server_spec_bastion='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_bastion='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_init_script_bastion="tf-init-bastion-centos"
+
+## Exechost1 - normal(private) ##
+export TF_VAR_exechost1_priv_subnet="tf-kcg-vpc01-priv-subnet1"
+export TF_VAR_num_of_exechost1=2
+export TF_VAR_init_script_exechost1="tf-init-exechost-centos"
+export TF_VAR_server_spec_exechost1='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost1='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+
+## Exechost2 - addstg(private) ##
+export TF_VAR_exechost2_priv_subnet="tf-kcg-vpc01-priv-subnet2"
+export TF_VAR_num_of_exechost2=2
+export TF_VAR_init_script_exechost2="tf-init-exechost-centos"
+export TF_VAR_server_spec_exechost2='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_exechost2_addstg_size="100"
+export TF_VAR_exechost2_addstg_mountdir='/mnt/addstg'
+
+
 export TF_VAR_num_of_svrs=1
 export TF_VAR_init_script_name="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
