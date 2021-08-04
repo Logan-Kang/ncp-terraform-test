@@ -3,7 +3,7 @@
 해당 코드는 NCP VPC 인프라 프로비저닝 자동화를 위한 Terraform 코드입니다.
 
 ### 초기 구성도
-![VPC Architecture ver2](./image/vpc_architecture_ver2.png)
+![VPC Architecture ver2](./image/vpc_architecture_ver2.jpg)
 
 ### 준비사항
 
