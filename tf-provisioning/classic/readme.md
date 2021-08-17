@@ -1,5 +1,5 @@
 # Terraform Provisioning(for Classic)
-
+# commit?
 해당 코드는 NCP Classic 인프라 프로비저닝 자동화를 위한 Terraform 코드입니다.
 
 ### 준비사항
