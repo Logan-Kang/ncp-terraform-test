@@ -1,5 +1,4 @@
 # Terraform Provisioning(for Classic)
-# test
 해당 코드는 NCP Classic 인프라 프로비저닝 자동화를 위한 Terraform 코드입니다.
 
 ### 준비사항
@@ -43,4 +42,4 @@
 ### 코드 내 설정 내용
 1. server 생성
 
-진행중 ....
+.....진행중 ....
