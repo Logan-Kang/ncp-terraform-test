@@ -1,5 +1,5 @@
-export TF_VAR_access_key="F2DilhKOXWX6OulJ8g12"
-export TF_VAR_secret_key="XlVwF7gT1clAw00y8JqXajwANJLKSImTZT0O98Oc"
+export TF_VAR_access_key="A2A482B25508A780DA48"
+export TF_VAR_secret_key="046B137ABC1BF65F269EF1E0997B1A55282C3A79"
 export TF_VAR_site="public"
 
 export TF_VAR_zone="KR-2"
