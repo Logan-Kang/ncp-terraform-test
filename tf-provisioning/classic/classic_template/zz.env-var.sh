@@ -5,7 +5,7 @@ export TF_VAR_site="public"
 export TF_VAR_region="KR"
 export TF_VAR_zone="KR-2"
 
-export TF_VAR_num=3 # 서버 생성 개수
+export TF_VAR_num=3
 
 export TF_VAR_account_name="dayeon"
 
@@ -14,8 +14,8 @@ export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UD
 
 export TF_VAR_linux_password='csi!@#123'
 
-export TF_VAR_server_spec_bastion='SPSVRSTAND000004' # 2vCPU, 4GB Mem, HDD 50GB
-export TF_VAR_server_image_bastion='SPSW0LINUX000046' # centos-7.3-64
+export TF_VAR_server_spec_bastion='SPSVRSTAND000004'
+export TF_VAR_server_image_bastion='SPSW0LINUX000046'
 export TF_VAR_server_spec_tester='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_tester='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)

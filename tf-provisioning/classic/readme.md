@@ -25,6 +25,8 @@
  -auto-approve 옵션을 이용하여 별도 확인없이 곧바로 수행 또한 가능합니다.
  `terraform apply (-auto-approve)`
  >5. 각 요소별로 템플릿화가 진행되어서 위 코드들을 한번에 수행할 수 있도록 make_tf.sh 파일을 통해 순서대로 생성되도록 제공할 예정입니다.
+# make_tf.sh 실행시, 환경변수가 입력되지 않는 이슈
+# terraform init 실행 후, xx.env-var.sh의 환경변수를 복사하여 입력하고 terraform apply시 환경변수가 들어가며 서버 생성
 
 #### <반납 시>
 
@@ -41,5 +43,6 @@
 
 ### 코드 내 설정 내용
 1. server 생성
+2. 공인 ip 생성
 
 .....진행중 ....
