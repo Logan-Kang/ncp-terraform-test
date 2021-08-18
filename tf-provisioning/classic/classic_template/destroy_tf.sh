@@ -47,6 +47,6 @@ rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 
 END
 
-cd ../01.vpc
+cd ../01.server-bastion
 terraform destroy -auto-approve
 rm -rf .terraform terraform.tfstate terraform.tfstate.backup

@@ -34,5 +34,5 @@ terraform destroy -auto-approve
 
 END
 
-cd ../01.vpc
+cd ../01.server-bastion
 terraform destroy -auto-approve

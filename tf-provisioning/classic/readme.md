@@ -38,11 +38,11 @@
  >4. Terraform apply를 통해 정상 수행 가능한 코드를 수행합니다.
  -auto-approve 옵션을 이용하여 별도 확인없이 곧바로 수행 또한 가능합니다.
  `terraform destroy (-auto-approve)`
+ # rm -rf .terraform terraform.tfstate terraform.tfstate.backup
  >5. 각 요소별로 템플릿화가 진행되어서 위 코드들을 한번에 수행할 수 있도록 destroy_tf.sh 파일을 통해 순서대로 반납되도록 제공할 예정입니다.
- 
 
 ### 코드 내 설정 내용
-1. server 생성
-2. 공인 ip 생성
-
+1. server 생성 (완)
+2. 공인 ip 생성 (완)
+3. ...
 .....진행중 ....
