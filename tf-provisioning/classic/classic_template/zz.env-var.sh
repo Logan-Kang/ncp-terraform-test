@@ -5,9 +5,9 @@ export TF_VAR_site="public"
 export TF_VAR_region="KR"
 export TF_VAR_zone="KR-2"
 
-export TF_VAR_num=13
+export TF_VAR_num=3 # 서버 생성 개수
 
-export TF_VAR_account_name="kcg"
+export TF_VAR_account_name="dayeon"
 
 export TF_VAR_inbound_acg='[["TCP", "0.0.0.0/0", "22", "SSH", ""],["TCP", "0.0.0.0/0", "80", "HTTP", ""],["TCP", "0.0.0.0/0", "3389", "RDP", ""],["ICMP", "0.0.0.0/0", null, "ICMP", ""],["TCP", "0.0.0.0/0", "6044", "Bastion", ""]]'
 export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UDP", "0.0.0.0/0", "1-65535", "UDP all", ""],["ICMP", "0.0.0.0/0", null, "ICMP", ""]]'
