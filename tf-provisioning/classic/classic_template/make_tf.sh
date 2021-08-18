@@ -1,6 +1,6 @@
 cd ./01.server-bastion
 terraform init
-terraform plan
+#terraform plan
 terraform apply -auto-approve
 
 : << 'END'
