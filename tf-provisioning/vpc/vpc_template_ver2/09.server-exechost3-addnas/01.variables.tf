@@ -18,29 +18,30 @@ variable "support_vpc" {
   type = bool
 }
 
-variable "zone" {}
-
-variable "zone2" {}
-
-variable "pub_subnet_cidr" {}
-
-variable "priv_subnet_cidr" {}
-
-variable "priv_subnet2_cidr" {}
-
-variable "lb_subnet_cidr" {}
-
-variable "inbound_acg" {
-  type = list
-}
-variable "outbound_acg" {
-  type = list
-}
-
 variable "linux_password" {}
 
-variable "server_spec_exechost" {}
+variable "exechost3_priv_subnet" {}
 
-variable "server_image_exechost" {}
+variable "num_of_exechost3" {}
 
-variable "init_script_name" {}
+variable "server_spec_exechost3" {}
+
+variable "server_image_exechost3" {}
+
+variable "init_script_exechost3" {}
+
+variable "exechost3_nas_name_postfix" {}
+
+variable "exechost3_nas_size" {}
+
+variable "exechost3_nas_protocol" {}
+
+variable "exechost3_cifs_user_name" {}
+
+variable "exechost3_cifs_user_password" {}
+
+variable "exechost3_nas_encrypted" {
+  type = bool
+}
+
+variable "exechost3_nas_mountdir" {}

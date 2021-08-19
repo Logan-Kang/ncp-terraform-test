@@ -13,19 +13,25 @@ cd ../11.lb
 terraform destroy -auto-approve
 cd ../10.lb-tg
 terraform destroy -auto-approve
-cd ../09.server-exechost3-addstg/09-1.detach-storage
+cd ../09.server-exechost3-addnas/09-1.detach-nas
 terraform init
 terraform apply -auto-approve
 terraform destroy -auto-approve
+sleep 120
 cd ..
 terraform destroy -auto-approve
-cd ../09.server-exechost2
+cd ../08.server-exechost2-addstg/08-1.detach-storage
+terraform init
+terraform apply -auto-approve
 terraform destroy -auto-approve
-cd ../09.server-exechost
+sleep 120
+cd ..
 terraform destroy -auto-approve
-cd ../08.server-bastion
+cd ../08.server-exechost1-nrml
 terraform destroy -auto-approve
-cd ../07.natgw
+cd ../07.server-bastion-public
+terraform destroy -auto-approve
+cd ../06.natgw
 terraform destroy -auto-approve
 cd ../05.init-script
 terraform destroy -auto-approve

@@ -35,19 +35,33 @@ export TF_VAR_init_script_bastion="tf-init-bastion-centos"
 
 ## Exechost1 - normal(private) ##
 export TF_VAR_exechost1_priv_subnet="tf-kcg-vpc01-priv-subnet1"
-export TF_VAR_num_of_exechost1=2
+export TF_VAR_num_of_exechost1=0
 export TF_VAR_init_script_exechost1="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost1='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost1='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 
 ## Exechost2 - addstg(private) ##
 export TF_VAR_exechost2_priv_subnet="tf-kcg-vpc01-priv-subnet2"
-export TF_VAR_num_of_exechost2=2
+export TF_VAR_num_of_exechost2=0
 export TF_VAR_init_script_exechost2="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost2='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_exechost2_addstg_size="100"
 export TF_VAR_exechost2_addstg_mountdir='/mnt/addstg'
+
+## Exechost3 - addnas(private) ##
+export TF_VAR_exechost3_priv_subnet="tf-kcg-vpc01-priv-subnet1"
+export TF_VAR_num_of_exechost3=2
+export TF_VAR_server_spec_exechost3='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
+export TF_VAR_server_image_exechost3='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
+export TF_VAR_init_script_exechost3="tf-init-exechost-centos"
+export TF_VAR_exechost3_nas_name_postfix="kcgnas"
+export TF_VAR_exechost3_nas_size=500
+export TF_VAR_exechost3_nas_protocol="NFS"  # NFS|CIFS
+export TF_VAR_exechost3_cifs_user_name=""
+export TF_VAR_exechost3_cifs_user_password=""
+export TF_VAR_exechost3_nas_encrypted=false
+export TF_VAR_exechost3_nas_mountdir='/mnt/nas'
 
 
 export TF_VAR_num_of_svrs=1

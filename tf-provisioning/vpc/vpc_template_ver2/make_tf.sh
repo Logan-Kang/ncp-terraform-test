@@ -13,19 +13,19 @@ terraform apply -auto-approve
 cd ../05.init-script
 terraform init
 terraform apply -auto-approve
-cd ../07.natgw
+cd ../06.natgw
 terraform init
 terraform apply -auto-approve
-cd ../08.server-bastion
+cd ../07.server-bastion-public
 terraform init
 terraform apply -auto-approve
-cd ../09.server-exechost
+cd ../08.server-exechost1-nrml
 terraform init
 terraform apply -auto-approve
-cd ../09.server-exechost2
+cd ../08.server-exechost2-addstg
 terraform init
 terraform apply -auto-approve
-cd ../09.server-exechost3-addstg
+cd ../09.server-exechost3-addnas
 terraform init
 terraform apply -auto-approve
 cd ../10.lb-tg
