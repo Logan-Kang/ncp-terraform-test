@@ -1,21 +1,21 @@
-export TF_VAR_access_key="kvVvVRm7ciGJNi9Rq51x"
-export TF_VAR_secret_key="k359v7ya0ED2Wa9ii4dZYvlC0uXvE3mMC2QRKkg5"
+export TF_VAR_access_key="A2A482B25508A780DA48"
+export TF_VAR_secret_key="046B137ABC1BF65F269EF1E0997B1A55282C3A79"
 export TF_VAR_site="public"
 
 export TF_VAR_region="KR"
 export TF_VAR_zone="KR-2"
 
-export TF_VAR_num=13
+export TF_VAR_num=3
 
-export TF_VAR_account_name="kcg"
+export TF_VAR_account_name="dayeon"
 
 export TF_VAR_inbound_acg='[["TCP", "0.0.0.0/0", "22", "SSH", ""],["TCP", "0.0.0.0/0", "80", "HTTP", ""],["TCP", "0.0.0.0/0", "3389", "RDP", ""],["ICMP", "0.0.0.0/0", null, "ICMP", ""],["TCP", "0.0.0.0/0", "6044", "Bastion", ""]]'
 export TF_VAR_outbound_acg='[["TCP", "0.0.0.0/0", "1-65535", "TCP all", ""],["UDP", "0.0.0.0/0", "1-65535", "UDP all", ""],["ICMP", "0.0.0.0/0", null, "ICMP", ""]]'
 
 export TF_VAR_linux_password='csi!@#123'
 
-export TF_VAR_server_spec_bastion='SPSVRSTAND000004' # 2vCPU, 4GB Mem, HDD 50GB
-export TF_VAR_server_image_bastion='SPSW0LINUX000046' # centos-7.3-64
+export TF_VAR_server_spec_bastion='SPSVRSTAND000004'
+export TF_VAR_server_image_bastion='SPSW0LINUX000046'
 export TF_VAR_server_spec_tester='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_tester='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 ##(server image list)
