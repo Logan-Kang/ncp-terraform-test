@@ -34,8 +34,8 @@ export TF_VAR_server_image_bastion='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_init_script_bastion="tf-init-bastion-centos"
 
 ## Exechost1 - normal(private) ##
-export TF_VAR_exechost1_priv_subnet="tf-kcg-vpc01-priv-subnet1"
-export TF_VAR_num_of_exechost1=0
+export TF_VAR_exechost1_priv_subnet="tf-kcg-vpc01-priv-subnet2"
+export TF_VAR_num_of_exechost1=1
 export TF_VAR_init_script_exechost1="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost1='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost1='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
