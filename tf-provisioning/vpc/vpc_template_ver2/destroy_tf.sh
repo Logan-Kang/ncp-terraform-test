@@ -4,10 +4,10 @@
 cd ./13.cdb-mysql-delete
 terraform init
 export TF_VAR_path_module=$(pwd)
-terraform destroy -auto-approve
 terraform apply -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-sleep 1200
+terraform destroy -auto-approve
+rm -rf .terraform terraform.tfstate terraform.tfstate.backup output.apistate
+sleep 600
 cd ../12.cdb-mysql-create
 export TF_VAR_path_module=$(pwd)
 terraform destroy -auto-approve
