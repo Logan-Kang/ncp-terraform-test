@@ -1,0 +1,8 @@
+2022-02-09 16:34:59 
+2022-02-09 16:37:50 
+Error: Post "https://fin-ncloud.apigw.fin-ntruss.com/vserver/v2/getRegionList": dial tcp 10.250.5.112:443: i/o timeout
+
+  on 00.provider.tf line 1, in provider "ncloud":
+   1: provider "ncloud" {
+
+
