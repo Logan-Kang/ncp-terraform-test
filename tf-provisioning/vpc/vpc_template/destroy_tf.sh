@@ -1,47 +1,159 @@
-# git update를 위해 tfstate까지 삭제한 파일입니다. 사용에 주의를 요합니다.
-# make_tf.sh 실행하다가 문제가 발생하여 원복이 필요할 경우 destroy_tf2.sh을 이용하세요.
-# (중요!)진행하기 전에 환경변수가 설정되어있는지 필수로 확인합니다!!
+# make_tf.sh을 실행하다가 문제가 생겼을 때 destroy가 필요할 시 해당 스크립트 실행해주세요
+# tfstate 삭제 방지
 cd ./13.cdb-mysql-delete
 terraform init
 export TF_VAR_path_module=$(pwd)
-terraform destroy -auto-approve
-terraform apply -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-sleep 1200
-cd ./12.cdb-mysql-create
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+sleep 600
+cd ../12.cdb-mysql-create
 export TF_VAR_path_module=$(pwd)
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup output.apistate
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../11.lb
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../10.lb-tg
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../09.server-exechost2
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../09.server-exechost
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../08.server-bastion
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
-cd ../07.natgw
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../09.server-exechost3-addnas/09-1.detach-nas
+terraform init
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+sleep 120
+cd ..
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../08.server-exechost2-addstg/08-1.detach-storage
+terraform init
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+sleep 120
+cd ..
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../08.server-exechost1-nrml
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../07.server-bastion-public
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../06.natgw
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../05.init-script
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../04.acg
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../03.subnet
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../02.nacl
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../01.vpc
-terraform destroy -auto-approve
-rm -rf .terraform terraform.tfstate terraform.tfstate.backup
+TF_DESTROY=$(terraform destroy -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_DESTROY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-destroy.log
+  #echo -e "\n"
+  exit; 
+fi

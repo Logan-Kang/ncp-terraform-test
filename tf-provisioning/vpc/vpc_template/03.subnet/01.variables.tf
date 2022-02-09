@@ -12,17 +12,27 @@ variable "account_name" {}
 
 variable "vpc_num" {}
 
-variable "zone" {}
+variable "region" {}
 
-variable "zone2" {}
+variable "support_vpc" {
+  type = bool
+}
+
+variable "num_of_priv_subnets" {}
+
+variable "zone" {
+  type = list
+}
 
 variable "pub_subnet_cidr" {}
 
-variable "priv_subnet_cidr" {}
+variable "priv_subnet_cidr" {
+  type = list
+}
 
-variable "priv_subnet2_cidr" {}
-
-variable "lb_subnet_cidr" {}
+variable "lb_subnet_cidr" {
+  type = list
+}
 
 
 /*

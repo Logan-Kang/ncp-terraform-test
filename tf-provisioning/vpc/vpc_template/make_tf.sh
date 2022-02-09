@@ -1,47 +1,120 @@
+D=`date "+%Y-%m-%d %H:%M:%S"`
+
 cd ./01.vpc
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../02.nacl
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../03.subnet
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../04.acg
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../05.init-script
 terraform init
-terraform apply -auto-approve
-cd ../07.natgw
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../06.natgw
 terraform init
-terraform apply -auto-approve
-cd ../08.server-bastion
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../07.server-bastion-public
 terraform init
-terraform apply -auto-approve
-cd ../09.server-exechost
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../08.server-exechost1-nrml
 terraform init
-terraform apply -auto-approve
-cd ../09.server-exechost2
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../08.server-exechost2-addstg
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
+cd ../09.server-exechost3-addnas
+terraform init
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../10.lb-tg
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../11.lb
 terraform init
-terraform apply -auto-approve
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
+fi
 cd ../12.cdb-mysql-create
 export TF_VAR_path_module=$(pwd)
 terraform init
-terraform apply -auto-approve
-
-cd ../14*
-nas_number=`./create-nas.sh $nas_name $nas_size $nas_type $nas_zone`
-if [ "$nas_number" = "Failed" ]; then
-    echo "Make Nas Failed"
-else
-    echo $nas_number > nas_number
-    server1_No=`cat ../09.server-exechost/terraform.tfstate  | grep \"instance_no\" | awk -F\" '{print $4}'`
-    ./access-control.sh set $nas_number $server1_No
+TF_APPLY=$(terraform apply -auto-approve 2>&1)
+if [ $? != 0 ]; 
+then
+  echo "$D ${TF_APPLY}"  | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" >> ../tf-error-apply.log
+  #echo -e "\n"
+  exit; 
 fi

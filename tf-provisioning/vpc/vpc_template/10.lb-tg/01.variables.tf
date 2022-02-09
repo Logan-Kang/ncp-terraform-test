@@ -12,26 +12,16 @@ variable "account_name" {}
 
 variable "vpc_num" {}
 
-variable "zone" {}
+variable "region" {}
 
-variable "pub_subnet_cidr" {}
-
-variable "priv_subnet_cidr" {}
-
-variable "lb_subnet_cidr" {}
-
-variable "inbound_acg" {
-  type = list
-}
-variable "outbound_acg" {
-  type = list
+variable "support_vpc" {
+  type = bool
 }
 
-variable "linux_password" {}
+variable "num_of_exechost1" {}
+variable "num_of_exechost2" {}
+variable "num_of_exechost3" {}
 
-variable "server_spec_exechost" {}
-
-variable "server_image_exechost" {}
 
 variable "lb_name" {}
 

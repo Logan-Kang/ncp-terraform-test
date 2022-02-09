@@ -12,6 +12,12 @@ variable "account_name" {}
 
 variable "vpc_num" {}
 
+variable "region" {}
+
+variable "support_vpc" {
+  type = bool
+}
+
 variable "zone" {}
 
 variable "pub_subnet_cidr" {}

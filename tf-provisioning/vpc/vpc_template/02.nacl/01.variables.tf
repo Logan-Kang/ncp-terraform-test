@@ -7,6 +7,11 @@ variable "site" {
     # default = "gov" #: Gov
     # default = "fin" #: Finance
 }
+variable "region" {}
+
+variable "support_vpc" {
+  type = bool
+}
 
 variable "account_name" {}
 

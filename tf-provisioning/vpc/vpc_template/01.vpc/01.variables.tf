@@ -10,6 +10,13 @@ variable "site" {
 
 variable "account_name" {}
 
+
+variable "region" {}
+
+variable "support_vpc" {
+  type = bool
+}
+
 variable "zone" {}
 
 variable "vpc_num" {}

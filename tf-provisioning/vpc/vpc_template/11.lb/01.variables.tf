@@ -12,26 +12,16 @@ variable "account_name" {}
 
 variable "vpc_num" {}
 
-variable "zone" {}
+variable "region" {}
 
-variable "pub_subnet_cidr" {}
+variable "support_vpc" {
+  type = bool
+}
 
-variable "priv_subnet_cidr" {}
+
 
 variable "lb_subnet_cidr" {}
 
-variable "inbound_acg" {
-  type = list
-}
-variable "outbound_acg" {
-  type = list
-}
-
-variable "linux_password" {}
-
-variable "server_spec_exechost" {}
-
-variable "server_image_exechost" {}
 
 variable "lb_name" {}
 
@@ -39,9 +29,13 @@ variable "lb_network_type" {}
 
 variable "lb_type" {}
 
-variable "listener_protocol" {}
+variable "listener_protocol_exechost1" {}
+variable "listener_protocol_exechost2" {}
+variable "listener_protocol_exechost3" {}
 
-variable "listener_port" {}
+variable "listener_port_exechost1" {}
+variable "listener_port_exechost2" {}
+variable "listener_port_exechost3" {}
 
 variable "tg_protocol" {}
 
@@ -60,3 +54,7 @@ variable "use_sticky_session" {
 variable "use_proxy_protocol" {
   type = bool
 }
+
+variable "num_of_exechost1" {}
+variable "num_of_exechost2" {}
+variable "num_of_exechost3" {}
