@@ -1,0 +1,122 @@
+===CONFIRM===
+GET /vmysql/v2/createCloudMysqlInstance?vpcNo=13970&cloudMysqlImageProductCode=SW.VDBAS.DBAAS.LNX64.CNTOS.0708.MYSQL.5732.B050&cloudMysqlProductCode=SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001&isHa=true&isMultiZone=false&cloudMysqlServiceName=kcg-cdb2&cloudMysqlServerNamePrefix=kcg-cdb2&cloudMysqlUserName=student&cloudMysqlUserPassword=Qwer1234!@&hostIp=%25&cloudMysqlPort=3306&cloudMysqlDatabaseName=test2&subnetNo=21822&responseFormatType=json\n1651544298000\ngzQg15lH2JaYa57ed8zm
+ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L
+===CONFIRM END===
+=== Start ===
+ACCESSKEY : gzQg15lH2JaYa57ed8zm
+SECRETKEY : ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L
+SIGNATURE : akxYIv+lAB3GlEd3x1CINDnOYWkvfIBgnsL3ffEeNa0=
+SIG : GET /vmysql/v2/createCloudMysqlInstance?vpcNo=13970&cloudMysqlImageProductCode=SW.VDBAS.DBAAS.LNX64.CNTOS.0708.MYSQL.5732.B050&cloudMysqlProductCode=SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001&isHa=true&isMultiZone=false&cloudMysqlServiceName=kcg-cdb2&cloudMysqlServerNamePrefix=kcg-cdb2&cloudMysqlUserName=student&cloudMysqlUserPassword=Qwer1234!@&hostIp=%25&cloudMysqlPort=3306&cloudMysqlDatabaseName=test2&subnetNo=21822&responseFormatType=json\n1651544298000\ngzQg15lH2JaYa57ed8zm
+TIMESTAMP : 1651544298000
+apiUrl : https://fin-ncloud.apigw.fin-ntruss.com
+URI : /vmysql/v2/createCloudMysqlInstance?vpcNo=13970&cloudMysqlImageProductCode=SW.VDBAS.DBAAS.LNX64.CNTOS.0708.MYSQL.5732.B050&cloudMysqlProductCode=SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001&isHa=true&isMultiZone=false&cloudMysqlServiceName=kcg-cdb2&cloudMysqlServerNamePrefix=kcg-cdb2&cloudMysqlUserName=student&cloudMysqlUserPassword=Qwer1234!@&hostIp=%25&cloudMysqlPort=3306&cloudMysqlDatabaseName=test2&subnetNo=21822&responseFormatType=json
+=== End ===
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 03 May 2022 02:18:20 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-ncp-trace-id: 62c3265gjioph3cdr4c4rj0dho
+x-ncp-apigw-response-origin: ENDPOINT
+
+{"createCloudMysqlInstanceResponse": {
+  "requestId": "8e0f4445-3a91-4286-b4a4-239619557b88",
+  "returnCode": "0",
+  "returnMessage": "success",
+  "totalRows": 1,
+  "cloudMysqlInstanceList": [
+    {
+      "cloudMysqlInstanceNo": "10918049",
+      "cloudMysqlServiceName": "kcg-cdb2",
+      "cloudMysqlInstanceStatusName": "creating",
+      "cloudMysqlInstanceStatus": {
+        "code": "INIT",
+        "codeName": "CLOUD DATABASE(VPC) Init State"
+      },
+      "cloudMysqlInstanceOperation": {
+        "code": "CREAT",
+        "codeName": "CLOUD DATABASE(VPC) Creat OP"
+      },
+      "cloudMysqlImageProductCode": "SW.VDBAS.DBAAS.LNX64.CNTOS.0708.MYSQL.5732.B050",
+      "engineVersion": "MYSQL5.7.32",
+      "license": {
+        "code": "GPL",
+        "codeName": "General Public License"
+      },
+      "cloudMysqlPort": 3306,
+      "isHa": true,
+      "isMultiZone": false,
+      "isBackup": true,
+      "backupFileRetentionPeriod": 1,
+      "backupTime": "00:00",
+      "createDate": "2022-05-03T11:18:21+0900",
+      "accessControlGroupNoList": [],
+      "cloudMysqlConfigList": [],
+      "cloudMysqlServerInstanceList": [
+        {
+          "cloudMysqlServerName": "kcg-cdb2-001-vhh",
+          "cloudMysqlServerRole": {
+            "code": "M",
+            "codeName": "Master"
+          },
+          "cloudMysqlServerInstanceStatusName": "creating",
+          "cloudMysqlServerInstanceStatus": {
+            "code": "PEND",
+            "codeName": "CLOUD DATABASE(VPC) Server Pending State"
+          },
+          "cloudMysqlServerInstanceOperation": {
+            "code": "CREAT",
+            "codeName": "CLOUD DATABASE(VPC) Server Create OP"
+          },
+          "cloudMysqlProductCode": "SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001",
+          "regionCode": "FKR",
+          "zoneCode": "FKR-2",
+          "vpcNo": "13970",
+          "subnetNo": "21822",
+          "isPublicSubnet": false,
+          "dataStorageType": {
+            "code": "SSD",
+            "codeName": "SSD"
+          },
+          "isStorageEncryption": false,
+          "dataStorageSize": 10737418240,
+          "cpuCount": 2,
+          "memorySize": 4294967296,
+          "createDate": "2022-05-03T11:18:21+0900"
+        },
+        {
+          "cloudMysqlServerName": "kcg-cdb2-002-vhi",
+          "cloudMysqlServerRole": {
+            "code": "H",
+            "codeName": "Standby Master"
+          },
+          "cloudMysqlServerInstanceStatusName": "creating",
+          "cloudMysqlServerInstanceStatus": {
+            "code": "PEND",
+            "codeName": "CLOUD DATABASE(VPC) Server Pending State"
+          },
+          "cloudMysqlServerInstanceOperation": {
+            "code": "CREAT",
+            "codeName": "CLOUD DATABASE(VPC) Server Create OP"
+          },
+          "cloudMysqlProductCode": "SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001",
+          "regionCode": "FKR",
+          "zoneCode": "FKR-2",
+          "vpcNo": "13970",
+          "subnetNo": "21822",
+          "isPublicSubnet": false,
+          "dataStorageType": {
+            "code": "SSD",
+            "codeName": "SSD"
+          },
+          "isStorageEncryption": false,
+          "dataStorageSize": 10737418240,
+          "cpuCount": 2,
+          "memorySize": 4294967296,
+          "createDate": "2022-05-03T11:18:21+0900"
+        }
+      ]
+    }
+  ]
+}}

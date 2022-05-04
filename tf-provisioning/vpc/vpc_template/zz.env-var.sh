@@ -1,7 +1,7 @@
 ### Default ###
 # Provider 환경변수 설정
-export TF_VAR_access_key="lGvLOT0aA07QCEgHYjSO"
-export TF_VAR_secret_key="SHRKBeH2iiOAWV5zIl7l1S8a6oUWnxkiQLNicAh9"
+export TF_VAR_access_key="gzQg15lH2JaYa57ed8zm"
+export TF_VAR_secret_key="ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L"
 export TF_VAR_site="fin"
 export TF_VAR_region="FKR"
 export TF_VAR_support_vpc=true
@@ -35,14 +35,14 @@ export TF_VAR_init_script_bastion="tf-init-bastion-centos"
 
 ## Exechost1 - normal(private) ##
 export TF_VAR_exechost1_priv_subnet="tf-kcg-vpc01-priv-subnet2"
-export TF_VAR_num_of_exechost1=0
+export TF_VAR_num_of_exechost1=1
 export TF_VAR_init_script_exechost1="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost1='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost1='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 
 ## Exechost2 - addstg(private) ##
 export TF_VAR_exechost2_priv_subnet="tf-kcg-vpc01-priv-subnet2"
-export TF_VAR_num_of_exechost2=0
+export TF_VAR_num_of_exechost2=1
 export TF_VAR_init_script_exechost2="tf-init-exechost-centos"
 export TF_VAR_server_spec_exechost2='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost2='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
@@ -51,7 +51,7 @@ export TF_VAR_exechost2_addstg_mountdir='/mnt/addstg'
 
 ## Exechost3 - addnas(private) ##
 export TF_VAR_exechost3_priv_subnet="tf-kcg-vpc01-priv-subnet1"
-export TF_VAR_num_of_exechost3=2
+export TF_VAR_num_of_exechost3=1
 export TF_VAR_server_spec_exechost3='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost3='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_init_script_exechost3="tf-init-exechost-centos"

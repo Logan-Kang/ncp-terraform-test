@@ -1,0 +1,10 @@
+========EXAMPLE========
+2022-05-02 17:10:15
+[0m[1mncloud_vpc.vpc: Refreshing state... [id=13965][0m
+[0m[1mncloud_vpc.vpc: Destroying... [id=13965][0m[0m
+[0m[1mncloud_vpc.vpc: Still destroying... [id=13965, 10s elapsed][0m[0m
+[0m[1mncloud_vpc.vpc: Destruction complete after 12s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 1 destroyed.[0m
+========================
+

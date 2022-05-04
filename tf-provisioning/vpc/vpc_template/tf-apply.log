@@ -1,0 +1,852 @@
+========EXAMPLE========
+2022-05-03 10:28:14 APPLY START
+2022-05-03 10:28:14
+[0m[1mncloud_vpc.vpc: Creating...[0m[0m
+[0m[1mncloud_vpc.vpc: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_vpc.vpc: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_vpc.vpc: Creation complete after 22s [id=13970][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:28:38
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mncloud_network_acl.nacl: Creating...[0m[0m
+[0m[1mncloud_network_acl.nacl: Creation complete after 3s [id=17903][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.[0m
+========================
+
+
+
+2022-05-03 10:38:05 APPLY START
+2022-05-03 10:38:05 VPC CREATE
+[0m[1mncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:07 NACL CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_network_acl.nacl: Refreshing state... [id=17903][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:09 SUBNET CREATE(PUB,PRIV,LB)
+[0m[1mdata.ncloud_network_acls.nacls: Refreshing state... [id=2022-05-03 01:30:49.559504088 +0000 UTC][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_subnet.vpc_pub_subnet: Refreshing state... [id=21820][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[0]: Refreshing state... [id=21822][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[1]: Refreshing state... [id=21821][0m
+[0m[1mncloud_subnet.vpc_lb_subnet: Refreshing state... [id=21823][0m
+[0m[1mncloud_subnet.vpc_lb_subnet2: Refreshing state... [id=21824][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:11 ACG CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mncloud_access_control_group_rule.acg-rule: Refreshing state... [id=24001][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:13 INIT SCRIPT CREATE
+[0m[1mncloud_init_script.init-exechost-centos: Creating...[0m[0m
+[0m[1mncloud_init_script.init-bastion-ubt: Creating...[0m[0m
+[0m[1mncloud_init_script.init-passwd-centos: Creating...[0m[0m
+[0m[1mncloud_init_script.init-exechost-ubt: Creating...[0m[0m
+[0m[1mncloud_init_script.init-passwd-ubt: Creating...[0m[0m
+[0m[1mncloud_init_script.init-bastion-centos: Creating...[0m[0m
+[0m[1mncloud_init_script.init-exechost-centos: Creation complete after 0s [id=16088][0m[0m
+[0m[1mncloud_init_script.init-bastion-ubt: Creation complete after 0s [id=16089][0m[0m
+[0m[1mncloud_init_script.init-passwd-centos: Creation complete after 0s [id=16090][0m[0m
+[0m[1mncloud_init_script.init-bastion-centos: Creation complete after 0s [id=16087][0m[0m
+[0m[1mncloud_init_script.init-exechost-ubt: Creation complete after 0s [id=16091][0m[0m
+[0m[1mncloud_init_script.init-passwd-ubt: Creation complete after 0s [id=16092][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:16 NAT GATEWAY CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_route_table.priv-subnet-route-table: Refreshing state...[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone1: Creating...[0m[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone2: Creating...[0m[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone1: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone2: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone1: Creation complete after 11s [id=10917477][0m[0m
+[0m[1mncloud_route.add-natgw-zone1: Creating...[0m[0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone2: Creation complete after 12s [id=10917478][0m[0m
+[0m[1mncloud_route.add-natgw-zone1: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_route.add-natgw-zone1: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_route.add-natgw-zone1: Creation complete after 22s [id=route-2099840914][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:38:52 BASTION SERVER(PUB) CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_init_script.init-bastion: Refreshing state...[0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.vpc_pub_subnet: Refreshing state...[0m
+[0m[1mncloud_network_interface.bastion-nic: Creating...[0m[0m
+[0m[1mncloud_login_key.loginkey: Creating...[0m[0m
+[0m[1mncloud_network_interface.bastion-nic: Creation complete after 0s [id=238756][0m[0m
+[0m[1mncloud_login_key.loginkey: Creation complete after 1s [id=Terraform-kcg-bastion-key][0m[0m
+[0m[1mncloud_server.bastion-server: Creating...[0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [30s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [40s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [50s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m0s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m10s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m20s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m30s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m40s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [1m50s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m0s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m10s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m20s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m30s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m40s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [2m50s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m0s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m10s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m20s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m30s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m40s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [3m50s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [4m0s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [4m10s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Still creating... [4m20s elapsed][0m[0m
+[0m[1mncloud_server.bastion-server: Creation complete after 4m26s [id=10917484][0m[0m
+[0m[1mncloud_public_ip.bastion-pub-ip: Creating...[0m[0m
+[0m[1mncloud_public_ip.bastion-pub-ip: Creation complete after 2s [id=10917521][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:43:24 EXECHOST1 SERVER(NORMAL) CREATE
+[0m[1mdata.ncloud_init_script.init-exechost1: Refreshing state...[0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state...[0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.exechost1_priv_subnet: Refreshing state...[0m
+[0m[1mncloud_login_key.loginkey: Creating...[0m[0m
+[0m[1mncloud_network_interface.exechost1-nic[0]: Creating...[0m[0m
+[0m[1mncloud_network_interface.exechost1-nic[0]: Creation complete after 0s [id=238757][0m[0m
+[0m[1mncloud_login_key.loginkey: Creation complete after 1s [id=Terraform-kcg-exechost1-key][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Creating...[0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [3m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [4m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [5m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [6m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [7m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [8m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [9m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [10m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [11m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Still creating... [12m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost1-server[0]: Creation complete after 12m10s [id=10917536][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.[0m
+2022-05-03 10:55:41 EXECHOST2 SERVER(ADD STORAGE) CREATE
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state...[0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state...[0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_init_script.init-exechost2: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.exechost2_priv_subnet: Refreshing state...[0m
+[0m[1mncloud_network_interface.exechost2-nic[0]: Creating...[0m[0m
+[0m[1mncloud_login_key.loginkey: Creating...[0m[0m
+[0m[1mncloud_network_interface.exechost2-nic[0]: Creation complete after 1s [id=238765][0m[0m
+[0m[1mncloud_login_key.loginkey: Creation complete after 2s [id=Terraform-kcg-exechost2-key][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Creating...[0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [3m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [4m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [5m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [6m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [7m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [8m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [9m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [10m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [11m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [12m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [13m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [14m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [14m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Still creating... [14m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost2-server[0]: Creation complete after 14m21s [id=10917784][0m[0m
+[0m[1mncloud_block_storage.exechost2-addstorage[0]: Creating...[0m[0m
+[0m[1mncloud_block_storage.exechost2-addstorage[0]: Creation complete after 5s [id=10917967][0m[0m
+[0m[1mnull_resource.exechost2-setup[0]: Creating...[0m[0m
+[0m[1mnull_resource.exechost2-setup[0]: Provisioning with 'file'...[0m[0m
+[0m[1mnull_resource.exechost2-setup[0]: Provisioning with 'remote-exec'...[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.exechost2-setup[0] (remote-exec):   Host: 221.168.33.102
+null_resource.exechost2-setup[0] (remote-exec):   User: root
+null_resource.exechost2-setup[0] (remote-exec):   Password: true
+null_resource.exechost2-setup[0] (remote-exec):   Private key: false
+null_resource.exechost2-setup[0] (remote-exec):   Certificate: false
+null_resource.exechost2-setup[0] (remote-exec):   SSH Agent: false
+null_resource.exechost2-setup[0] (remote-exec):   Checking Host Key: false
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Connected!
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Loaded plugins: fastestmirror, langpacks
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Loading mirror speeds from cached hostfile
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):  * base: mirror.kakao.com
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):  * extras: mirror.kakao.com
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):  * updates: mirror.kakao.com
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): base             | 3.6 kB     00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): extras           | 2.9 kB     00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): updates          | 2.9 kB     00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): (1/4): base/7/x86_ | 153 kB   00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): (2/4): extras/7/x8 | 246 kB   00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): (3/4): base/7/x86_ | 6.1 MB   00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): (4/4): updates/7/x |  15 MB   00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Resolving Dependencies
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): --> Running transaction check
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ---> Package sshpass.x86_64 0:1.06-2.el7 will be installed
+[0m[1mnull_resource.exechost2-setup[0]: Still creating... [10s elapsed][0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): --> Finished Dependency Resolution
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Dependencies Resolved
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ========================================
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):  Package Arch   Version    Repository
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):                                    Size
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ========================================
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Installing:
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):  sshpass x86_64 1.06-2.el7 extras  21 k
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Transaction Summary
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ========================================
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Install  1 Package
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Total download size: 21 k
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Installed size: 38 k
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Downloading packages:
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): sshpass-1.06-2.el7 |  21 kB   00:00
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Running transaction check
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Running transaction test
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Transaction test succeeded
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Running transaction
+[0m[1mnull_resource.exechost2-setup[0]: Still creating... [20s elapsed][0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):   Installing : sshpass- [         ] 1/1
+null_resource.exechost2-setup[0] (remote-exec):   Installing : sshpass- [###      ] 1/1
+null_resource.exechost2-setup[0] (remote-exec):   Installing : sshpass- [#######  ] 1/1
+null_resource.exechost2-setup[0] (remote-exec):   Installing : sshpass- [######## ] 1/1
+null_resource.exechost2-setup[0] (remote-exec):   Installing : sshpass-1.06-2.el7   1/1
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):   Verifying  : sshpass-1.06-2.el7   1/1
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Installed:
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):   sshpass.x86_64 0:1.06-2.el7
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Complete!
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): csi!@#123
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Pseudo-terminal will not be allocated because stdin is not a terminal.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Warning: Permanently added '10.200.30.7' (ECDSA) to the list of known hosts.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Pseudo-terminal will not be allocated because stdin is not a terminal.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ===Default Setting===
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): DIR=/dev/xvdb
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): DIR2=/dev/xvdb1
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): INPUT=/tmp/input
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): ===fdisk input===
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Welcome to fdisk (util-linux 2.23.2).
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Changes will remain in memory only, until you decide to write them.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Be careful before using the write command.
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Device does not contain a recognized partition table
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Command (m for help): Partition type:
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):    p   primary (0 primary, 0 extended, 4 free)
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):    e   extended
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Select (default p): Partition number (1-4, default 1): First sector (2048-209715199, default 2048): Using default value 2048
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Last sector, +sectors or +size{K,M,G} (2048-209715199, default 209715199): Using default value 209715199
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Partition 1 of type Linux and of size 100 GiB is set
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Command (m for help): Building a new DOS disklabel with disk identifier 0x4803d1f1.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Selected partition 1
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Hex code (type L to list all codes): Changed type of partition 'Linux' to 'Linux'
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Command (m for help): The partition table has been altered!
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Calling ioctl() to re-read partition table.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Syncing disks.
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): mke2fs 1.42.9 (28-Dec-2013)
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Filesystem label=
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): OS type: Linux
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Block size=4096 (log=2)
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Fragment size=4096 (log=2)
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Stride=0 blocks, Stripe width=0 blocks
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 6553600 inodes, 26214144 blocks
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 1310707 blocks (5.00%) reserved for the super user
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): First data block=0
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Maximum filesystem blocks=2174746624
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 800 block groups
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 32768 blocks per group, 32768 fragments per group
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 8192 inodes per group
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Superblock backups stored on blocks:
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): 	4096000, 7962624, 11239424, 20480000, 23887872
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Allocating group tables:   0/800
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec):        done
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Writing inode tables:   0/800       done
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Creating journal (32768 blocks):
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): done
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): Writing superblocks and filesystem accounting information:   0/800       
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): done
+[0m[0m
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): === add-storage.sh END ===
+[0m[0mnull_resource.exechost2-setup[0] (remote-exec): === REMOTE-EXEC END===
+[0m[1mnull_resource.exechost2-setup[0]: Creation complete after 25s [id=2332578693407562693][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.[0m
+2022-05-03 11:10:43 EXECHOST3 SERVER(ADD NAS) CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state...[0m
+[0m[1mdata.ncloud_init_script.init-exechost3: Refreshing state...[0m
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.exechost3_priv_subnet: Refreshing state...[0m
+[0m[1mncloud_network_interface.exechost3-nic[0]: Creating...[0m[0m
+[0m[1mncloud_login_key.loginkey: Creating...[0m[0m
+[0m[1mncloud_network_interface.exechost3-nic[0]: Creation complete after 1s [id=238785][0m[0m
+[0m[1mncloud_login_key.loginkey: Creation complete after 2s [id=Terraform-kcg-exechost3-key][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Creating...[0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [3m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [4m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [5m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m0s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m10s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m20s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m30s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m40s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Still creating... [6m50s elapsed][0m[0m
+[0m[1mncloud_server.exechost3-server[0]: Creation complete after 6m56s [id=10917976][0m[0m
+[0m[1mncloud_nas_volume.exechost3-nas: Creating...[0m[0m
+[0m[1mncloud_nas_volume.exechost3-nas: Creation complete after 9s [id=10918045][0m[0m
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Creating...[0m[0m
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Provisioning with 'file'...[0m[0m
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Provisioning with 'remote-exec'...[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.exechost3-nfs-setup[0] (remote-exec):   Host: 221.168.33.102
+null_resource.exechost3-nfs-setup[0] (remote-exec):   User: root
+null_resource.exechost3-nfs-setup[0] (remote-exec):   Password: true
+null_resource.exechost3-nfs-setup[0] (remote-exec):   Private key: false
+null_resource.exechost3-nfs-setup[0] (remote-exec):   Certificate: false
+null_resource.exechost3-nfs-setup[0] (remote-exec):   SSH Agent: false
+null_resource.exechost3-nfs-setup[0] (remote-exec):   Checking Host Key: false
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Connected!
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Loaded plugins: fastestmirror, langpacks
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Loading mirror speeds from cached hostfile
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * base: mirror.kakao.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * extras: mirror.kakao.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * updates: mirror.kakao.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Package sshpass-1.06-2.el7.x86_64 already installed and latest version
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Nothing to do
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): csi!@#123
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Pseudo-terminal will not be allocated because stdin is not a terminal.
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Warning: Permanently added '10.200.20.6' (ECDSA) to the list of known hosts.
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Loaded plugins: fastestmirror, langpacks
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Loading mirror speeds from cached hostfile
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * base: mirror.navercorp.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * epel: ftp.iij.ad.jp
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * extras: mirror.navercorp.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  * updates: mirror.navercorp.com
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Resolving Dependencies
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): --> Running transaction check
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): ---> Package nfs-utils.x86_64 1:1.3.0-0.66.el7_8 will be updated
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): ---> Package nfs-utils.x86_64 1:1.3.0-0.68.el7.2 will be an update
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): --> Finished Dependency Resolution
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Dependencies Resolved
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): ================================================================================
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  Package          Arch          Version                    Repository      Size
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): ================================================================================
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Updating:
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):  nfs-utils        x86_64        1:1.3.0-0.68.el7.2         updates        413 k
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Transaction Summary
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): ================================================================================
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Upgrade  1 Package
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Total download size: 413 k
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Downloading packages:
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Running transaction check
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Running transaction test
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Transaction test succeeded
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Running transaction
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):   Updating   : 1:nfs-utils-1.3.0-0.68.el7.2.x86_64                          1/2
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):   Cleanup    : 1:nfs-utils-1.3.0-0.66.el7_8.x86_64                          2/2
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):   Verifying  : 1:nfs-utils-1.3.0-0.68.el7.2.x86_64                          1/2
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):   Verifying  : 1:nfs-utils-1.3.0-0.66.el7_8.x86_64                          2/2
+[0m[0m
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Updated:
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec):   nfs-utils.x86_64 1:1.3.0-0.68.el7.2
+[0m[0m
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Complete!
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): Pseudo-terminal will not be allocated because stdin is not a terminal.
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): MOUNT_POINT=/mnt/nas
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): NAS_VOL=169.254.3.6:/n2605580_kcgnas
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): === mount-nas.sh END ===
+[0m[0mnull_resource.exechost3-nfs-setup[0] (remote-exec): === REMOTE-EXEC END===
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Creation complete after 7s [id=1185495998024184115][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.[0m
+2022-05-03 11:18:03 LB TARGET GROUP CREATE
+[0m[1mdata.ncloud_server.exechost3-server[0]: Refreshing state...[0m
+[0m[1mdata.ncloud_server.exechost2-server[0]: Refreshing state...[0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_server.exechost1-server[0]: Refreshing state...[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Creating...[0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Creating...[0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Creating...[0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Creation complete after 1s [id=48383][0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost2[0]: Creating...[0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Creation complete after 1s [id=48381][0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost1: Creating...[0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Creation complete after 1s [id=48382][0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost3[0]: Creating...[0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost2[0]: Creation complete after 0s [id=2022-05-03 02:18:09.825951526 +0000 UTC][0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost1: Creation complete after 0s [id=2022-05-03 02:18:09.837002616 +0000 UTC][0m[0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost3[0]: Creation complete after 0s [id=2022-05-03 02:18:09.884447416 +0000 UTC][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.[0m
+2022-05-03 11:18:09 LOAD BALANCER CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost3: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost1: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.vpc_lb_subnet2: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.vpc_lb_subnet1: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost2: Refreshing state...[0m
+2022-05-03 11:18:14 CDB MYSQL CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.mysql_priv_subnet: Refreshing state...[0m
+[0m[1mnull_resource.cdb-mysql-create: Creating...[0m[0m
+[0m[1mnull_resource.cdb-mysql-create: Provisioning with 'local-exec'...[0m[0m
+[0m[0mnull_resource.cdb-mysql-create (local-exec): Executing: ["/bin/sh" "-c" "/root/ncp-iac/tf-provisioning/vpc/vpc_template/12.cdb-mysql-create/cdb_mysql.sh GET \"/vmysql/v2/createCloudMysqlInstance?vpcNo=13970&cloudMysqlImageProductCode=SW.VDBAS.DBAAS.LNX64.CNTOS.0708.MYSQL.5732.B050&cloudMysqlProductCode=SVR.VDBAS.STAND.C002.M004.NET.HDD.B050.G001&isHa=true&isMultiZone=false&cloudMysqlServiceName=kcg-cdb2&cloudMysqlServerNamePrefix=kcg-cdb2&cloudMysqlUserName=student&cloudMysqlUserPassword=Qwer1234!@&hostIp=%25&cloudMysqlPort=3306&cloudMysqlDatabaseName=test2&subnetNo=21822&responseFormatType=json\" >> /root/ncp-iac/tf-provisioning/vpc/vpc_template/12.cdb-mysql-create/output.apistate\n\n"]
+[0m[1mnull_resource.cdb-mysql-create: Creation complete after 2s [id=4080895475716590574][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.[0m
+
+
+2022-05-04 11:08:15 APPLY START
+2022-05-04 11:08:15 VPC CREATE
+[0m[1mncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:18 NACL CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_network_acl.nacl: Refreshing state... [id=17903][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:20 SUBNET CREATE(PUB,PRIV,LB)
+[0m[1mdata.ncloud_network_acls.nacls: Refreshing state... [id=2022-05-03 01:38:11.145622773 +0000 UTC][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_subnet.vpc_pub_subnet: Refreshing state... [id=21820][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[0]: Refreshing state... [id=21822][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[1]: Refreshing state... [id=21821][0m
+[0m[1mncloud_subnet.vpc_lb_subnet: Refreshing state... [id=21823][0m
+[0m[1mncloud_subnet.vpc_lb_subnet2: Refreshing state... [id=21824][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:22 ACG CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mncloud_access_control_group_rule.acg-rule: Refreshing state... [id=24001][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:24 INIT SCRIPT CREATE
+[0m[1mncloud_init_script.init-passwd-centos: Refreshing state... [id=16090][0m
+[0m[1mncloud_init_script.init-bastion-centos: Refreshing state... [id=16087][0m
+[0m[1mncloud_init_script.init-exechost-centos: Refreshing state... [id=16088][0m
+[0m[1mncloud_init_script.init-bastion-ubt: Refreshing state... [id=16089][0m
+[0m[1mncloud_init_script.init-exechost-ubt: Refreshing state... [id=16091][0m
+[0m[1mncloud_init_script.init-passwd-ubt: Refreshing state... [id=16092][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:27 NAT GATEWAY CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_route_table.priv-subnet-route-table: Refreshing state... [id=24066][0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone2: Refreshing state... [id=10917478][0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone1: Refreshing state... [id=10917477][0m
+[0m[1mncloud_route.add-natgw-zone1: Refreshing state... [id=route-2099840914][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:29 BASTION SERVER(PUB) CREATE
+[0m[1mdata.ncloud_init_script.init-bastion: Refreshing state... [id=16087][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-bastion-key][0m
+[0m[1mdata.ncloud_subnet.vpc_pub_subnet: Refreshing state... [id=21820][0m
+[0m[1mncloud_network_interface.bastion-nic: Refreshing state... [id=238756][0m
+[0m[1mncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mncloud_public_ip.bastion-pub-ip: Refreshing state... [id=10917521][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:31 EXECHOST1 SERVER(NORMAL) CREATE
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_init_script.init-exechost1: Refreshing state... [id=16088][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost1-key][0m
+[0m[1mdata.ncloud_subnet.exechost1_priv_subnet: Refreshing state... [id=21821][0m
+[0m[1mncloud_network_interface.exechost1-nic[0]: Refreshing state... [id=238757][0m
+[0m[1mncloud_server.exechost1-server[0]: Refreshing state... [id=10917536][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:34 EXECHOST2 SERVER(ADD STORAGE) CREATE
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mdata.ncloud_init_script.init-exechost2: Refreshing state... [id=16088][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost2-key][0m
+[0m[1mdata.ncloud_subnet.exechost2_priv_subnet: Refreshing state... [id=21821][0m
+[0m[1mncloud_network_interface.exechost2-nic[0]: Refreshing state... [id=238765][0m
+[0m[1mncloud_server.exechost2-server[0]: Refreshing state... [id=10917784][0m
+[0m[1mncloud_block_storage.exechost2-addstorage[0]: Refreshing state... [id=10917967][0m
+[0m[1mnull_resource.exechost2-setup[0]: Refreshing state... [id=2332578693407562693][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:38 EXECHOST3 SERVER(ADD NAS) CREATE
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mdata.ncloud_init_script.init-exechost3: Refreshing state... [id=16088][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost3-key][0m
+[0m[1mdata.ncloud_subnet.exechost3_priv_subnet: Refreshing state... [id=21822][0m
+[0m[1mncloud_network_interface.exechost3-nic[0]: Refreshing state... [id=238785][0m
+[0m[1mncloud_server.exechost3-server[0]: Refreshing state... [id=10917976][0m
+[0m[1mncloud_nas_volume.exechost3-nas: Refreshing state... [id=10918045][0m
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Refreshing state... [id=1185495998024184115][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:08:42 LB TARGET GROUP CREATE
+[0m[1mdata.ncloud_server.exechost2-server[0]: Refreshing state... [id=10917784][0m
+[0m[1mdata.ncloud_server.exechost1-server[0]: Refreshing state... [id=10917536][0m
+[0m[1mdata.ncloud_server.exechost3-server[0]: Refreshing state... [id=10917976][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Refreshing state... [id=48382][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Refreshing state... [id=48381][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Refreshing state... [id=48383][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost1: Refreshing state... [id=2022-05-03 02:18:09.837002616 +0000 UTC][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost2[0]: Refreshing state... [id=2022-05-03 02:18:09.825951526 +0000 UTC][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost3[0]: Refreshing state... [id=2022-05-03 02:18:09.884447416 +0000 UTC][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Modifying... [id=48383][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Modifying... [id=48382][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Modifying... [id=48381][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Modifications complete after 0s [id=48383][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Modifications complete after 0s [id=48382][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Modifications complete after 0s [id=48381][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 3 changed, 0 destroyed.[0m
+2022-05-04 11:08:45 LOAD BALANCER CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.vpc_lb_subnet2: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost3: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost2: Refreshing state...[0m
+[0m[1mdata.ncloud_subnet.vpc_lb_subnet1: Refreshing state...[0m
+[0m[1mdata.ncloud_lb_target_group.lb-tg-exechost1: Refreshing state...[0m
+2022-05-04 11:08:47 CDB MYSQL CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_subnet.mysql_priv_subnet: Refreshing state... [id=21822][0m
+[0m[1mnull_resource.cdb-mysql-create: Refreshing state... [id=4080895475716590574][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+
+
+2022-05-04 11:10:10 APPLY START
+2022-05-04 11:10:10 VPC CREATE
+[0m[1mncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:13 NACL CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_network_acl.nacl: Refreshing state... [id=17903][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:15 SUBNET CREATE(PUB,PRIV,LB)
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_network_acls.nacls: Refreshing state... [id=2022-05-04 02:08:21.952849501 +0000 UTC][0m
+[0m[1mncloud_subnet.vpc_pub_subnet: Refreshing state... [id=21820][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[0]: Refreshing state... [id=21822][0m
+[0m[1mncloud_subnet.vpc_priv_subnet[1]: Refreshing state... [id=21821][0m
+[0m[1mncloud_subnet.vpc_lb_subnet2: Refreshing state... [id=21824][0m
+[0m[1mncloud_subnet.vpc_lb_subnet: Refreshing state... [id=21823][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:17 ACG CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mncloud_access_control_group_rule.acg-rule: Refreshing state... [id=24001][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:19 INIT SCRIPT CREATE
+[0m[1mncloud_init_script.init-exechost-centos: Refreshing state... [id=16088][0m
+[0m[1mncloud_init_script.init-exechost-ubt: Refreshing state... [id=16091][0m
+[0m[1mncloud_init_script.init-bastion-centos: Refreshing state... [id=16087][0m
+[0m[1mncloud_init_script.init-passwd-ubt: Refreshing state... [id=16092][0m
+[0m[1mncloud_init_script.init-bastion-ubt: Refreshing state... [id=16089][0m
+[0m[1mncloud_init_script.init-passwd-centos: Refreshing state... [id=16090][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:21 NAT GATEWAY CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_route_table.priv-subnet-route-table: Refreshing state... [id=24066][0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone2: Refreshing state... [id=10917478][0m
+[0m[1mncloud_nat_gateway.nat_gateway_zone1: Refreshing state... [id=10917477][0m
+[0m[1mncloud_route.add-natgw-zone1: Refreshing state... [id=route-2099840914][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:23 BASTION SERVER(PUB) CREATE
+[0m[1mdata.ncloud_init_script.init-bastion: Refreshing state... [id=16087][0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-bastion-key][0m
+[0m[1mdata.ncloud_subnet.vpc_pub_subnet: Refreshing state... [id=21820][0m
+[0m[1mncloud_network_interface.bastion-nic: Refreshing state... [id=238756][0m
+[0m[1mncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mncloud_public_ip.bastion-pub-ip: Refreshing state... [id=10917521][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:25 EXECHOST1 SERVER(NORMAL) CREATE
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_init_script.init-exechost1: Refreshing state... [id=16088][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost1-key][0m
+[0m[1mdata.ncloud_subnet.exechost1_priv_subnet: Refreshing state... [id=21821][0m
+[0m[1mncloud_network_interface.exechost1-nic[0]: Refreshing state... [id=238757][0m
+[0m[1mncloud_server.exechost1-server[0]: Refreshing state... [id=10917536][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:28 EXECHOST2 SERVER(ADD STORAGE) CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mdata.ncloud_init_script.init-exechost2: Refreshing state... [id=16088][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost2-key][0m
+[0m[1mdata.ncloud_subnet.exechost2_priv_subnet: Refreshing state... [id=21821][0m
+[0m[1mncloud_network_interface.exechost2-nic[0]: Refreshing state... [id=238765][0m
+[0m[1mncloud_server.exechost2-server[0]: Refreshing state... [id=10917784][0m
+[0m[1mncloud_block_storage.exechost2-addstorage[0]: Refreshing state... [id=10917967][0m
+[0m[1mnull_resource.exechost2-setup[0]: Refreshing state... [id=2332578693407562693][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:32 EXECHOST3 SERVER(ADD NAS) CREATE
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_init_script.init-exechost3: Refreshing state... [id=16088][0m
+[0m[1mdata.ncloud_server.bastion-server: Refreshing state... [id=10917484][0m
+[0m[1mdata.ncloud_access_control_group.acg: Refreshing state... [id=24001][0m
+[0m[1mncloud_login_key.loginkey: Refreshing state... [id=Terraform-kcg-exechost3-key][0m
+[0m[1mdata.ncloud_subnet.exechost3_priv_subnet: Refreshing state... [id=21822][0m
+[0m[1mncloud_network_interface.exechost3-nic[0]: Refreshing state... [id=238785][0m
+[0m[1mncloud_server.exechost3-server[0]: Refreshing state... [id=10917976][0m
+[0m[1mncloud_nas_volume.exechost3-nas: Refreshing state... [id=10918045][0m
+[0m[1mnull_resource.exechost3-nfs-setup[0]: Refreshing state... [id=1185495998024184115][0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+2022-05-04 11:10:35 LB TARGET GROUP CREATE
+[0m[1mdata.ncloud_server.exechost1-server[0]: Refreshing state... [id=10917536][0m
+[0m[1mdata.ncloud_vpc.vpc: Refreshing state... [id=13970][0m
+[0m[1mdata.ncloud_server.exechost3-server[0]: Refreshing state... [id=10917976][0m
+[0m[1mdata.ncloud_server.exechost2-server[0]: Refreshing state... [id=10917784][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Refreshing state... [id=48382][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Refreshing state... [id=48383][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Refreshing state... [id=48381][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost1: Refreshing state... [id=2022-05-03 02:18:09.837002616 +0000 UTC][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost3[0]: Refreshing state... [id=2022-05-03 02:18:09.884447416 +0000 UTC][0m
+[0m[1mncloud_lb_target_group_attachment.lb-tg-attach-exechost2[0]: Refreshing state... [id=2022-05-03 02:18:09.825951526 +0000 UTC][0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Modifying... [id=48381][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Modifying... [id=48382][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Modifying... [id=48383][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost3: Modifications complete after 0s [id=48382][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost1: Modifications complete after 0s [id=48381][0m[0m
+[0m[1mncloud_lb_target_group.lb-tg-exechost2: Modifications complete after 0s [id=48383][0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 3 changed, 0 destroyed.[0m
+2022-05-04 11:10:38 LOAD BALANCER CREATE
+
+
+2022-05-04 11:18:55 APPLY START
+2022-05-04 11:18:55 LOAD BALANCER CREATE
+
+
+2022-05-04 11:24:14 APPLY START
+2022-05-04 11:24:14 LOAD BALANCER CREATE
+
+
+2022-05-04 11:25:07 APPLY START
+2022-05-04 11:25:07 LOAD BALANCER CREATE
+
+
+2022-05-04 11:26:23 APPLY START
+2022-05-04 11:26:23 LOAD BALANCER CREATE
+
+
+2022-05-04 11:37:51 APPLY START
+2022-05-04 11:37:51 LOAD BALANCER CREATE
+
+
+2022-05-04 11:38:14 APPLY START
+2022-05-04 11:38:14 LOAD BALANCER CREATE
+
+
+2022-05-04 11:38:45 APPLY START
+2022-05-04 11:38:45 LOAD BALANCER CREATE
