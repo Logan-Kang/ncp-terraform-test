@@ -2,7 +2,7 @@ D=`date "+%Y-%m-%d %H:%M:%S"`
 echo -e "\n" >> ./tf-apply.log
 echo "$D APPLY START" >> ./tf-apply.log
 
-: <<'END'
+#: <<'END'
 ### vpc ###
 cd ./01.vpc
 D=`date "+%Y-%m-%d %H:%M:%S"`
@@ -160,8 +160,6 @@ fi
 
 ### load balancer(application, network, network proxy) ### 
 cd ../11.lb
-END
-cd ./11.lb
 D=`date "+%Y-%m-%d %H:%M:%S"`
 terraform init
 echo "$D LOAD BALANCER CREATE" >> ../tf-apply.log

@@ -65,10 +65,10 @@ fi
 
 cd ../09.server-exechost3-addnas/09-1.detach-nas
 D=`date "+%Y-%m-%d %H:%M:%S"`
-echo "$D EXECHOST3 SERVER & NAS DESTROY" >> ../tf-destroy.log
+echo "$D EXECHOST3 SERVER & NAS DESTROY" >> ../../tf-destroy.log
 terraform init
 TF_APPLY=$(terraform apply -auto-approve)
-echo "${TF_APPLY}" >> ../tf-destroy.log
+echo "${TF_APPLY}" >> ../../tf-destroy.log
 echo "${TF_APPLY}"
 if [ $? != 0 ]; 
 then
@@ -76,7 +76,7 @@ then
   exit; 
 fi
 TF_DESTROY=$(terraform destroy -auto-approve)
-echo "${TF_DESTROY}" >> ../tf-destroy.log
+echo "${TF_DESTROY}" >> ../../tf-destroy.log
 echo "${TF_DESTROY}"
 if [ $? != 0 ]; 
 then
@@ -97,10 +97,10 @@ fi
 
 cd ../08.server-exechost2-addstg/08-1.detach-storage
 D=`date "+%Y-%m-%d %H:%M:%S"`
-echo "$D EXECHOST2 SERVER & ADD-STORAGE DESTROY" >> ../tf-destroy.log
+echo "$D EXECHOST2 SERVER & ADD-STORAGE DESTROY" >> ../../tf-destroy.log
 terraform init
 TF_APPLY=$(terraform apply -auto-approve)
-echo "${TF_APPLY}" >> ../tf-destroy.log
+echo "${TF_APPLY}" >> ../../tf-destroy.log
 echo "${TF_APPLY}"
 if [ $? != 0 ]; 
 then
@@ -108,7 +108,7 @@ then
   exit; 
 fi
 TF_DESTROY=$(terraform destroy -auto-approve)
-echo "${TF_DESTROY}" >> ../tf-destroy.log
+echo "${TF_DESTROY}" >> ../../tf-destroy.log
 echo "${TF_DESTROY}"
 if [ $? != 0 ]; 
 then
