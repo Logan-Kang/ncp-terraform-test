@@ -1,0 +1,10 @@
+========EXAMPLE========
+2022-05-10 10:35:59 ╷
+│ Error: no results. please change search criteria and try again
+│ 
+│   with data.ncloud_lb_target_group.lb-tg-exechost1,
+│   on 11.loadbalancer.tf line 22, in data "ncloud_lb_target_group" "lb-tg-exechost1":
+│   22: data "ncloud_lb_target_group" "lb-tg-exechost1" {
+│ 
+╵
+========================

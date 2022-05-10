@@ -1,4 +1,7 @@
 ### Default ###
+# 로그 설정
+export TF_LOG=
+
 # Provider 환경변수 설정
 export TF_VAR_access_key="gzQg15lH2JaYa57ed8zm"
 export TF_VAR_secret_key="ijyVWwhzfL6wPPqjnRCMGXQAZJDxPFJETSJ49d5L"
@@ -51,7 +54,7 @@ export TF_VAR_exechost2_addstg_mountdir='/mnt/addstg'
 
 ## Exechost3 - addnas(private) ##
 export TF_VAR_exechost3_priv_subnet="tf-kcg-vpc01-priv-subnet1"
-export TF_VAR_num_of_exechost3=1
+export TF_VAR_num_of_exechost3=0
 export TF_VAR_server_spec_exechost3='SVR.VSVR.STAND.C002.M004.NET.HDD.B050.G001'
 export TF_VAR_server_image_exechost3='SW.VSVR.OS.LNX64.CNTOS.0708.B050'
 export TF_VAR_init_script_exechost3="tf-init-exechost-centos"
@@ -71,12 +74,27 @@ export TF_VAR_exechost3_nas_mountdir='/mnt/nas'
 
 #---------- LB(choose 1 in 3) ----------#
 ## Application LB
-export TF_VAR_tg_protocol="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
-export TF_VAR_tg_port='80' 
-export TF_VAR_hc_protocol="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
-export TF_VAR_hc_port='80'
-export TF_VAR_hc_url="/" # nlb,proxylb는 빈칸 지정
 
+# Target Group
+export TF_VAR_tg_protocol_exechost1="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost1='80' 
+export TF_VAR_hc_protocol_exechost1="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost1='80'
+export TF_VAR_hc_url_exechost1="/" # nlb,proxylb는 빈칸 지정
+
+export TF_VAR_tg_protocol_exechost2="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost1='88' 
+export TF_VAR_hc_protocol_exechost2="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost2='80'
+export TF_VAR_hc_url_exechost2="/" # nlb,proxylb는 빈칸 지정
+
+export TF_VAR_tg_protocol_exechost3="HTTPS" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost1='443' 
+export TF_VAR_hc_protocol_exechost3="HTTP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost3='80'
+export TF_VAR_hc_url_exechost3="/" # nlb,proxylb는 빈칸 지정
+
+# Load Balancer
 export TF_VAR_lb_name="alb" # alb/nlb/proxylb
 export TF_VAR_lb_network_type='PUBLIC' # PUBLIC/PRIVATE
 export TF_VAR_lb_type='APPLICATION' # APPLICATION/NETWORK/NETWORK_PROXY
@@ -84,7 +102,7 @@ export TF_VAR_lb_type='APPLICATION' # APPLICATION/NETWORK/NETWORK_PROXY
 export TF_VAR_listener_protocol_exechost1="HTTP" # HTTP/HTTPS
 export TF_VAR_listener_port_exechost1='80'
 export TF_VAR_listener_protocol_exechost2="" # HTTP/HTTPS
-export TF_VAR_listener_port_exechost2=''
+export TF_VAR_listener_port_exechost2='80'
 export TF_VAR_listener_protocol_exechost3="HTTP" # HTTP/HTTPS
 export TF_VAR_listener_port_exechost3='443'
 
@@ -92,38 +110,67 @@ export TF_VAR_use_sticky_session=false
 export TF_VAR_use_proxy_protocol=false
 
 ## Network LB
-export TF_VAR_tg_protocol="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
-export TF_VAR_tg_port='80' 
-export TF_VAR_hc_protocol="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
-export TF_VAR_hc_port='80'
-export TF_VAR_hc_url="" # nlb,proxylb는 빈칸 지정
+# Target Group
+export TF_VAR_tg_protocol_exechost1="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost1='80' 
+export TF_VAR_hc_protocol_exechost1="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost1='80'
+export TF_VAR_hc_url_exechost1="" # nlb,proxylb는 빈칸 지정
 
+export TF_VAR_tg_protocol_exechost2="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost2='81' 
+export TF_VAR_hc_protocol_exechost2="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost2='80'
+export TF_VAR_hc_url_exechost2="" # nlb,proxylb는 빈칸 지정
+
+export TF_VAR_tg_protocol_exechost3="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost3='82' 
+export TF_VAR_hc_protocol_exechost3="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost3='80'
+export TF_VAR_hc_url_exechost3="" # nlb,proxylb는 빈칸 지정
+
+# Load Balancer
 export TF_VAR_lb_name="nlb" # alb/nlb/proxylb
 export TF_VAR_lb_network_type='PUBLIC' # PUBLIC/PRIVATE
 export TF_VAR_lb_type='NETWORK' # APPLICATION/NETWORK/NETWORK_PROXY
 
-export TF_VAR_listener_protocol_exechost1="TCP" # HTTP/HTTPS
+export TF_VAR_listener_protocol_exechost1="TCP" # HTTP HTTPS TCP TLS
 export TF_VAR_listener_port_exechost1='80'
-export TF_VAR_listener_protocol_exechost2="" # HTTP/HTTPS
-export TF_VAR_listener_port_exechost2=''
-export TF_VAR_listener_protocol_exechost3="TCP" # HTTP/HTTPS
-export TF_VAR_listener_port_exechost3='88'
+export TF_VAR_listener_protocol_exechost2="TCP" # HTTP HTTPS TCP TLS
+export TF_VAR_listener_port_exechost2='81'
+export TF_VAR_listener_protocol_exechost3="" # HTTP HTTPS TCP TLS
+export TF_VAR_listener_port_exechost3=''
 
 export TF_VAR_use_sticky_session=false
 export TF_VAR_use_proxy_protocol=false
 
-# Network Proxy LB
-export TF_VAR_tg_protocol="PROXY_TCP" # HTTP/HTTPS/TCP/PROXY_TCP
-export TF_VAR_tg_port='80' 
-export TF_VAR_hc_protocol="TCP" # HTTP/HTTPS/TCP
-export TF_VAR_hc_port='80'
-export TF_VAR_hc_url="" # nlb,proxylb는 빈칸 지정
+## Network Proxy LB
 
+# Target Group
+export TF_VAR_tg_protocol_exechost1="PROXY_TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost1='80' 
+export TF_VAR_hc_protocol_exechost1="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost1='80'
+export TF_VAR_hc_url_exechost1="" # nlb,proxylb는 빈칸 지정
+
+export TF_VAR_tg_protocol_exechost2="PROXY_TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost2='81' 
+export TF_VAR_hc_protocol_exechost2="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost2='80'
+export TF_VAR_hc_url_exechost2="" # nlb,proxylb는 빈칸 지정
+
+export TF_VAR_tg_protocol_exechost3="PROXY_TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_tg_port_exechost3='82' 
+export TF_VAR_hc_protocol_exechost3="TCP" # HTTP/HTTPS/TCP/PROXY_TCP
+export TF_VAR_hc_port_exechost3='80'
+export TF_VAR_hc_url_exechost3="" # nlb,proxylb는 빈칸 지정
+
+# Load Balancer
 export TF_VAR_lb_name="proxylb" # alb/nlb/proxylb
 export TF_VAR_lb_network_type='PUBLIC' # PUBLIC/PRIVATE
 export TF_VAR_lb_type='NETWORK_PROXY' # APPLICATION/NETWORK/NETWORK_PROXY
 
-export TF_VAR_listener_protocol_exechost1="TCP" # HTTP/HTTPS
+export TF_VAR_listener_protocol_exechost1="TCP" # HTTP HTTPS TCP TLS
 export TF_VAR_listener_port_exechost1='80'
 export TF_VAR_listener_protocol_exechost2="" # HTTP/HTTPS
 export TF_VAR_listener_port_exechost2=''
@@ -148,8 +195,8 @@ export TF_VAR_api_url='https://fin-ncloud.apigw.fin-ntruss.com' # finance
 #export TF_VAR_api_url='https://ncloud.apigw.ntruss.com' # public
 
 export TF_VAR_mysql_priv_subnet="tf-kcg-vpc01-priv-subnet1"
-export TF_VAR_cdbmysql_name='kcg-cdb2'    # DB cluster name
-export TF_VAR_cdbmysql_prefix='kcg-cdb2'  # DB server name prefix
+export TF_VAR_cdbmysql_name='tf-kcg-cdb2'    # DB cluster name
+export TF_VAR_cdbmysql_prefix='tf-kcg-cdb2'  # DB server name prefix
 export TF_VAR_cdbmysql_username='student' # DB username
 export TF_VAR_cdbmysql_userpwd='Qwer1234!@' # DB user password
 export TF_VAR_cdbmysql_hostIP='%25' # host IP(ALL)

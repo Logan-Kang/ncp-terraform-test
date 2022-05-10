@@ -42,9 +42,7 @@ resource "ncloud_lb" "loadbalancer" {
   name         = "${data.ncloud_vpc.vpc.name}-${var.lb_name}"
   network_type = var.lb_network_type
   type         = var.lb_type
-  subnet_no_list = [data.ncloud_subnet.vpc_lb_subnet1.subnet_no,
-  data.ncloud_subnet.vpc_lb_subnet2.subnet_no]
-
+  subnet_no_list = var.lb_type == "NETWORK" ? [data.ncloud_subnet.vpc_lb_subnet1.subnet_no] : [data.ncloud_subnet.vpc_lb_subnet1.subnet_no,data.ncloud_subnet.vpc_lb_subnet2.subnet_no]
 }
 
 resource "ncloud_lb_listener" "lb-listener-exechost1" {

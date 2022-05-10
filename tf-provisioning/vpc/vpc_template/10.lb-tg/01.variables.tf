@@ -25,15 +25,26 @@ variable "num_of_exechost3" {}
 
 variable "lb_name" {}
 
-variable "tg_protocol" {}
+## target group - exechost1
+variable "tg_protocol_exechost1" {}
+variable "tg_port_exechost1" {}
+variable "hc_protocol_exechost1" {}
+variable "hc_port_exechost1" {}
+variable "hc_url_exechost1" {}
 
-variable "tg_port" {}
+## target group - exechost2
+variable "tg_protocol_exechost2" {}
+variable "tg_port_exechost2" {}
+variable "hc_protocol_exechost2" {}
+variable "hc_port_exechost2" {}
+variable "hc_url_exechost2" {}
 
-variable "hc_protocol" {}
-
-variable "hc_port" {}
-
-variable "hc_url" {}
+## target group - exechost1
+variable "tg_protocol_exechost3" {}
+variable "tg_port_exechost3" {}
+variable "hc_protocol_exechost3" {}
+variable "hc_port_exechost3" {}
+variable "hc_url_exechost3" {}
 
 variable "use_sticky_session" {
   type = bool

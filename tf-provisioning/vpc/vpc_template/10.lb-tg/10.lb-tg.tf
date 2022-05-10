@@ -29,15 +29,15 @@ data "ncloud_server" "exechost3-server" {
 resource "ncloud_lb_target_group" "lb-tg-exechost1" {
   vpc_no   = data.ncloud_vpc.vpc.id
   name = "${data.ncloud_vpc.vpc.name}-${var.lb_name}-exechost1-tg"
-  protocol = var.tg_protocol
+  protocol = var.tg_protocol_exechost1
   target_type = "VSVR"
-  port        = var.tg_port
+  port        = var.tg_port_exechost1
   description = "for test"
   health_check {
-    protocol = var.hc_protocol
+    protocol = var.hc_protocol_exechost1
     http_method = "GET"
-    port           = var.hc_port
-    url_path       = var.hc_url
+    port           = var.hc_port_exechost1
+    url_path       = var.hc_url_exechost1
     cycle          = 30
     up_threshold   = 2
     down_threshold = 2
@@ -52,15 +52,15 @@ resource "ncloud_lb_target_group" "lb-tg-exechost1" {
 resource "ncloud_lb_target_group" "lb-tg-exechost2" {
   vpc_no   = data.ncloud_vpc.vpc.id
   name = "${data.ncloud_vpc.vpc.name}-${var.lb_name}-exechost2-tg"
-  protocol = var.tg_protocol
+  protocol = var.tg_protocol_exechost2
   target_type = "VSVR"
-  port        = var.tg_port
+  port        = var.tg_port_exechost2
   description = "for test"
   health_check {
-    protocol = var.hc_protocol
+    protocol = var.hc_protocol_exechost2
     http_method = "GET"
-    port           = var.hc_port
-    url_path       = var.hc_url
+    port           = var.hc_port_exechost2
+    url_path       = var.hc_url_exechost2
     cycle          = 30
     up_threshold   = 2
     down_threshold = 2
@@ -75,15 +75,15 @@ resource "ncloud_lb_target_group" "lb-tg-exechost2" {
 resource "ncloud_lb_target_group" "lb-tg-exechost3" {
   vpc_no   = data.ncloud_vpc.vpc.id
   name = "${data.ncloud_vpc.vpc.name}-${var.lb_name}-exechost3-tg"
-  protocol = var.tg_protocol
+  protocol = var.tg_protocol_exechost3
   target_type = "VSVR"
-  port        = var.tg_port
+  port        = var.tg_port_exechost3
   description = "for test"
   health_check {
-    protocol = var.hc_protocol
+    protocol = var.hc_protocol_exechost3
     http_method = "GET"
-    port           = var.hc_port
-    url_path       = var.hc_url
+    port           = var.hc_port_exechost3
+    url_path       = var.hc_url_exechost3
     cycle          = 30
     up_threshold   = 2
     down_threshold = 2
@@ -95,6 +95,7 @@ resource "ncloud_lb_target_group" "lb-tg-exechost3" {
 }
 
 resource "ncloud_lb_target_group_attachment" "lb-tg-attach-exechost1" {
+  count = var.num_of_exechost1 >= 1 ? 1 : 0
   target_group_no = ncloud_lb_target_group.lb-tg-exechost1.target_group_no
   target_no_list = data.ncloud_server.exechost1-server[*].instance_no
 }
